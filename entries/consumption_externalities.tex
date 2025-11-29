@@ -1,0 +1,72 @@
+\section{Consumption Externalities and Pigouvian Taxes}
+In the presence of consumption externalities, an individual's 
+utility depends on both her and others' consumptions.
+As a result, the centralized allocation (i.e., Negishi's solution) deviates from the decentralized one.
+To induce the decentralized allocation to be Pareto Efficient, one can introduce the so-called 
+Pigouvian taxes, so that the taxes make individuals behave \textit{as if} they care about others.
+The following derives the tax formula.
+
+For simplicity, we assume that the goods 1 does not have consumption exteranlity.
+First, the Negishi problem is give by%
+\footnote{
+    We use superscripts to denote individuals, and subscripts to index goods.
+}
+\begin{align*}
+    \max_{x \in \mathbb{R}^{LI}} \quad & \sum_i \alpha^i U^i(x^i_1, \{x^i_l \}, \{x^{-i}_l \}) \\ 
+    \text{subject to:} & \quad \sum_i x^i_l \leq w_l, \quad \forall l
+\end{align*}
+Note that there are $L$ constraints, so we introduce $L$ Lagrangean Multipliers in the equation below
+\[
+\mathcal{L} = \sum_i \alpha^i U^i(x^i_1, \{x^i_l \}, \{x^{-i}_l \}) + \sum_l \lambda_l \left(w_l - \sum_i x^i_l  \right)
+\]
+The first-order conditions are given by 
+\begin{align*}
+    [x^i_1] & \qquad \alpha^i \frac{\partial U^i}{\partial x^i_1} = \lambda_1 \\
+    [x^i_l] & \qquad \sum_j \alpha^j \frac{\partial U^j}{\partial x^i_l} = \lambda_l \quad \text{ for } l \neq 1
+\end{align*}
+
+
+The decentralized consumer's problem is given by 
+\begin{align*}
+    \max_{x^i \in \mathbb{R}^{I}} \quad &   U^i(x^i_1, \{x^i_l \}, \{x^{-i}_l \}) \\ 
+    \text{subject to:} & \quad \sum_l p_l (1 + \tau^i_l) x^i \leq \sum_l p_l w_l^i, \quad \forall l
+\end{align*}
+The Lagrangean is given by 
+\[
+\mathcal{L}^i =  U^i(x^i_1, \{x^i_l \}, \{x^{-i}_l \}) +  \mu^i \sum_l \left[p_l w_l^i - p_l (1 + \tau^i_l) x^i \right]
+\]
+The first-order conditions are given by 
+\begin{align*}
+    [x^i_1] & \qquad \frac{\partial U^i}{\partial x^i_1} = \mu^i p_1 = \mu^i \qquad \text{ normalization using } \quad p_1 = 1 \\
+    [x^i_l] & \qquad \frac{\partial U^i}{\partial x^i_l} = \mu^i p_l (1 + \tau^i_l) \quad \text{ for } l \neq 1
+\end{align*}
+Combining the these two conditions, we have 
+\[
+\frac{\partial U^i}{\partial x^i_l} = \frac{\partial U^i}{\partial x^i_1}  p_l (1 + \tau^i_l)
+\]
+
+Note that we can decompose the second FOC of the Negishi problem as 
+\[
+\frac{\partial U^i}{\partial x^i_l} + \sum_{j \neq i} \frac{\alpha^j}{\alpha^i} \frac{\partial U^j}{\partial x^i_l} = \frac{\lambda_l}{\alpha^i} \quad \text{ for } l \neq 1
+\]
+Therefore, we can equate the equation above with the decentralized condition and compute the tax formula: 
+\[
+\underbrace{
+\frac{\lambda_l}{\alpha_i} - \sum_{j \neq i} \frac{\alpha^j}{\alpha^i} \frac{\partial U^j}{\partial x^i_l}
+}_{\text{Negishi's}} = 
+\underbrace{
+    \frac{\partial U^i}{\partial x^i_1}  p_l (1 + \tau^i_l)
+}_{\text{Decentralized consumer's}}
+\]
+It follows that 
+\begin{align*}
+    \tau^i_l = \frac{\lambda_l}{p_l \alpha_i \frac{\partial U^i}{\partial x^i_1}} - 1 
+        - \sum_{j \neq i}  \frac{\alpha^j}{p_l \alpha^i}  \frac{\frac{\partial U^j}{\partial x^i_l}}{\frac{\partial U^i}{\partial x^i_1}}
+\end{align*}
+Now assuming $\alpha^i = \frac{1}{\mu^i} = \frac{1}{\frac{\partial U^i}{\partial x^i_1}}$, and $p_l = \lambda_l$, 
+the we have 
+\begin{tcolorbox}
+    \[
+    \tau^i_l = -  \frac{1}{p_l } \sum_{j \neq i} \frac{\frac{\partial U^j}{\partial x^i_l}}{\frac{\partial U^j}{\partial x^j_1}}.
+    \]
+\end{tcolorbox}

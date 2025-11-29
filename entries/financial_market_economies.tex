@@ -1,5 +1,5 @@
 \chapter{Financial Market Economies}
-
+\section{No-Arbitrage}
 \subsection{No Arbitrage}
 There are multiple definitions of the No Arbitrage condition.
 Essentially, they all require zero profit on the spot market at time 0, 
@@ -10,7 +10,10 @@ Formally, the first definition is given by
 \textbf{Definition I (No Arbitrage):}
 Let $A \in \mathbb{R}^{S \times J}$ be a future return matrix.
 Let $z \in \mathbb{R}^{J}$ be a portfolio.
-$q^{T} \in \mathbb{R}^{J}$ be a price vector of the portfolio.
+$q^{T} \in \mathbb{R}^{J}$ be a price vector of the portfolio.%
+\footnote{
+    In this note, only $q$ is a row vector, while other vectors are columns. 
+}
 For $W = \begin{bmatrix}
   -q \\ A
 \end{bmatrix}$,
@@ -18,21 +21,21 @@ there is no $z \in \mathbb{R}^{J}$ such that $Wz > 0$.
 \\
 \begin{itemize}
   \item \textbf{Remark:} Intuitively, $Wz \in \mathbb{R}^{S+1}$ denotes the profit of buying/selling assets on the spot market and all the future financial markets. 
-  \item \textit{Example:} Consider 
-  $W = \begin{bmatrix}
-    -3 & -4  \\ 5 & 0 \\ 2 & 2 \\ 3 & 1
-  \end{bmatrix}.$
-  Then take $z = \begin{bmatrix}
-    1 \\ -1 
-  \end{bmatrix}$ (namely, buying 1 unit of asset 1 and selling 1 unit of asset 2),
-  we have 
-  $Wz = \begin{bmatrix}
-    1  \\ 5 \\ 0 \\ 2
-  \end{bmatrix},$
-  which means the agent can make profit 1 at time 0 (on the spot market), and 
-  5, 0, 2 at time 1 if $s = 1, 2, 3$, respectively.
 \end{itemize}
 \end{tcolorbox}
+\noindent \textit{Example:} Consider 
+$W = \begin{bmatrix}
+-3 & -4  \\ 5 & 0 \\ 2 & 2 \\ 3 & 1
+\end{bmatrix}.$
+Then take $z = \begin{bmatrix}
+1 \\ -1 
+\end{bmatrix}$ (namely, buying 1 unit of asset 1 and selling 1 unit of asset 2),
+we have 
+$Wz = \begin{bmatrix}
+1  \\ 5 \\ 0 \\ 2
+\end{bmatrix},$
+which means the agent can make profit 1 at time 0 (on the spot market), and 
+5, 0, 2 at time 1 if $s = 1, 2, 3$, respectively.
 
 
 The No Arbitrage condition above is (mathematically) equivalent to the following definition
@@ -52,22 +55,44 @@ With these two definitions in mind, we now introduce the No-Arbitrage theorem
 \text{span}(W) \cap \mathbb{R}^{S+1}_{+} = \{ \bm{0}\} \Leftrightarrow
 \exists \hat{\pi} \in \mathbb{R}^{S+1}_{++} \text{ such that } \hat{\pi}  \tau = 0, \forall \tau \in \text{span}(W)
 \]
-\textbf{Remark}: Intuitively, $\hat{\pi}$ serves as a machinery that summarizes the agent's profit at time 0 and time 1, 
+\textbf{Remarks}: 
+\begin{itemize}
+  \item We require $\hat{\pi} \in \mathbb{R}^{S+1}_{++}$ (strictly positive) due to the need of normalization (see below).
+\end{itemize}
+\end{tcolorbox}
+
+Intuitively, $\hat{\pi}$ serves as a machinery that summarizes the agent's profit at time 0 and time 1, 
 taking probabilities and discount factors into considerations:
 \[
 \hat{\pi}_0 [Wz]_{0} + \sum_s \hat{\pi}_s  [Wz]_{s} = 0, \quad \forall z \in \mathbb{R}^{J}
 \]
 Since $[Wz]_{0} = - \sum_j q_j z_j $, after the normalization $\pi_s = \frac{\hat{\pi}_s}{\hat{\pi}_0}$, we have 
 \[
-- \sum_j q_j z_j  +  \sum_s \pi_s \sum_j a_{sj} z_j = 0 
+- \sum_j q_j z_j  +  \sum_s \pi_s \sum_j a_{sj} z_j = 0,
 \]
+where $\pi_s$ denotes the price of one unit of consumption good delivered in state $s$ at time 1.
 In matrix form, we have $(-q + \pi^{T} A) z = 0 \Rightarrow q = \pi^{T} A$.
+\begin{tcolorbox}
 Defining $\pi_s = m_s \text{Prob}_s$, we have the \textbf{Fundamental Equation of Asset Pricing}:
 \begin{equation}
     \label{eqn:fundamental_asset_pricing_eqn}
     q = \mathbb{E}\left(m A \right).
 \end{equation}
 \end{tcolorbox}
-
 \textbf{Proof of the No-Arbitrage Theorem}
 
+
+
+\begin{tcolorbox}
+\textbf{Proposition. (The degree of freedom of stochastic discounts)}
+Given $A \in \mathbb{R}^{S\times J}$ of rank $J$ and $q \in \mathbb{R}^J$, the set of viable stochastic discounts 
+is an $\mathbb{R}^{S-J}$ strictly positive subspace of $\mathbb{R}^J$, namely,
+\[
+R(q;A)  = \{\pi \in \mathbb{R}^S_{++}: q = \pi^T A \} = \mathbb{R}^{S-J}_{++}
+\]
+In words, once you find a viable $\pi$, there are only $S-J$ elements in that $\pi$ you can vary.
+\end{tcolorbox}
+
+
+
+\section{Arrow Theorem}
