@@ -1,0 +1,34 @@
+\chapter{Assignment and Search}
+
+
+The dual assignment and the primal assignment problems yield the same solution.
+
+
+\noindent \textbf{Proof}
+The Primal problem is given by 
+\begin{align*}
+    \max_{\pi^{ih}} \quad & \sum_i \sum_h \pi^{ih} U^{ih} \\
+    \text{s.t.} \quad & \sum_h \pi^{ih} = w^i, \quad \forall i \\
+    & \sum_i \pi^{ih} = f^h, \quad \forall h 
+\end{align*}
+
+The Dual problem is given by 
+\begin{align*}
+    \min_{w^{i}, f^h} \quad & \sum_i  u^i w^i + \sum_h v^h f^h \\
+    \text{s.t.} \quad & u^i + v^h \geq U^{ih}, \quad \forall i, h
+\end{align*}
+
+The Lagragean for the Primal problem is
+\[
+\mathcal{L}^P = \sum_i \sum_h  \pi^{ih} U^{ih} + \sum_h v^h \left( f^h - \sum_i \pi^{ih} \right) + \sum_i u^i \left(w^i - \sum_h \pi^{ih} \right)
+\]
+
+The Lagragean for the Dual problem is
+\[
+\mathcal{L}^D = \sum_i  u^i w^i + \sum_h v^h f^h + \sum_i \sum_h \pi^{ih} \left( U^{ih} -  u^i  - v^h \right)
+\]
+
+Obivously, when choosing proper Lagragean Multipliers,
+namely, using $\{v^h\}, \{ u^i \}$ as the LM for the Primal problem and 
+$\{\pi^{ih} \}$ for the Dual problem, 
+these two Lagragean coincide with each other and thus yield the same solutions. \(\blacksquare\)
