@@ -1,8 +1,8 @@
 \chapter{Assignment and Search}
 
-
+\begin{proposition}
 The dual assignment and the primal assignment problems yield the same solution.
-
+\end{proposition}
 
 \noindent \textbf{Proof}
 The Primal problem is given by 
@@ -32,3 +32,27 @@ Obivously, when choosing proper Lagragean Multipliers,
 namely, using $\{v^h\}, \{ u^i \}$ as the LM for the Primal problem and 
 $\{\pi^{ih} \}$ for the Dual problem, 
 these two Lagragean coincide with each other and thus yield the same solutions. \(\blacksquare\)
+
+
+\begin{proposition}
+    If $U^{ih}$ is supermodular, then the optimal matching is assortative.
+\end{proposition}
+\noindent \textbf{Proof}
+Mathematically, it is a direct implication of the Hardy-Littlewood-Polya inequality, which says
+\[
+\langle x, y \rangle \leq \langle \hat{x}, \hat{y} \rangle,
+\]
+where $\hat{x}, \hat{y}$ are the decreasing rearrangements of $x, y$ respectively.
+
+Now, we prove the proposition by contradiction with inductive steps.
+Assume that the optimal mathching is not assortative;
+concretely, assume that worker $i$ matches with firm $\sigma_*(i) \neq i$.
+Then, using the supermodularity of $U$, we have 
+\[
+\sum_{i \neq 1 \neq {\sigma_*}^{-1}(1)} U^{i \sigma_*(i)} + U^{11} + U^{{\sigma_*}^{-1}(1) \sigma_*(1)} > \sum_i U^{i \sigma_*(i)}. 
+\]
+In the $k^{th}$ step, we have 
+\[
+\sum_{i \neq k \neq {\sigma_*}^{-1}(k)} U^{i \sigma_*(i)} + U^{kk} + U^{{\sigma_*}^{-1}(k) \sigma_*(k)} > \sum_i U^{i \sigma_*(i)}. 
+\]
+Iterate this procedure for all $i$, we reach a contradiction. \(\blacksquare\)

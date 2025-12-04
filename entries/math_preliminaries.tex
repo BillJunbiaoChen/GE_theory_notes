@@ -1,0 +1,95 @@
+\chapter{Math Preliminaries}
+
+\section{Differential Topology}
+\begin{definition}[Transversality]
+    Let $f: \mathbb{R}^M \rightarrow \mathbb{R}^N$, with $M > N$.
+    We say $f$ is \textbf{transversal} at $0$ (denoted as $f \pitchfork 0$), if 
+    \[ \forall x, \text{ such that } f(x) = 0\], we have the Jacobian matrix
+    \[
+    Df = \begin{bmatrix}
+    \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_m} \\
+    \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_m} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \frac{\partial f_n}{\partial x_1} & \frac{\partial f_n}{\partial x_2} & \cdots & \frac{\partial f_n}{\partial x_m}
+    \end{bmatrix} 
+    \] is full rank, namely, rank($Df$) = $N$.
+\end{definition}
+
+\noindent \textbf{Example}
+Consider $M = 2$, and $N = 1$.
+Define
+\[
+f(x, y) = x^2 + y^2 - 1
+\]
+The zero set is the unit circle. $x^2 + y^2 = 1$.
+
+Since $n=1$, the Jacobian is a single row vector (the gradient):
+\[
+Df(x,y) = 
+\begin{bmatrix}
+    \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y}
+\end{bmatrix}
+= 
+\begin{bmatrix}
+    2x & 2y
+\end{bmatrix}
+\]
+The rank of a $1 \times 2$ matrix is 1 (full rank) unless all entries are zero.
+\[
+Df = [0, 0] \text{ iff } x = 0 \text{ and } y = 0.
+\]
+However, the origin is \textbf{not} in the zero set. 
+Therefore, for every point actually on the circle ($f=0$), the gradient is non-zero.
+Hence, we have
+\[
+f \pitchfork 0
+\]
+
+\noindent \textbf{Example 2: Non-transveral}
+\[ g(x, y) = y^2 - x^3 \]
+The set of points where $y^2 = x^3$. 
+This describes a semicubical parabola which has a sharp ``cusp'' (singular point) at the origin.
+
+The Jacobian is given by
+\[
+Dg(x, y) = 
+    \begin{bmatrix}
+        \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y}
+    \end{bmatrix}
+    = 
+    \begin{bmatrix}
+        -3x^2 & 2y
+    \end{bmatrix}
+\]
+It follows that $Df(0,0)$ at the point $(0,0)$:
+Therefore, its rank is \textbf{0} and thus $g$ is not transversal at $0$.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.3\textwidth]{entries/images/non_transveral_function_1.png}
+  \includegraphics[width=0.3\textwidth]{entries/images/non_transveral_function_2.png}
+  \includegraphics[width=0.3\textwidth]{entries/images/non_transveral_function_3.png}
+  \caption{A function that is not transversal at the origin}
+  \begin{minipage}{0.95\textwidth}{\footnotesize \textsc{Notes}:
+   This function depicts $g(x,y) = y^2 - x^3$, which is not transversal at the origin due to the cusp there.
+  \par}\end{minipage}
+\end{figure}
+
+
+\begin{proposition}[Transversality Theorem]
+    Let $f: \mathbb{R}^M \rightarrow \mathbb{R}^N$ be $C^\infty$, with $M > N$.
+    And decompose $x = [x1, x2]$, where $x1 \in \mathbb{R}^{M - N}$, and $x2 \in \mathbb{R}^N$.
+    For almost every $x1$, if $f(x1, x2) = 0$, we have 
+    \[
+    \text{rank}(D_{x2}f) = 
+    \begin{bmatrix}
+    \frac{\partial f_1}{\partial x_{2,1}} & \frac{\partial f_1}{\partial x_{2,2}} & \cdots & \frac{\partial f_1}{\partial x_{2,N}} \\
+    \frac{\partial f_2}{\partial x_{2,1}} & \frac{\partial f_2}{\partial x_{2,2}} & \cdots & \frac{\partial f_2}{\partial x_{2,N}} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \frac{\partial  f_N}{\partial x_{2,1}} & \frac{\partial f_N}{\partial x_{2,2}} & \cdots & \frac{\partial f_N}{\partial x_{2,N}} 
+    \end{bmatrix}
+    = N.
+    \]  
+\end{proposition}
+
+\paragraph{\textbf{Remarks:}} We will use transverality theorem to prove a bunch of important results in GE theory, 
+such as the genericity of regular economies.
