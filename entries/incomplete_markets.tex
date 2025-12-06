@@ -20,7 +20,7 @@ An important proposition that relates to the second role of prices in the GEI is
 Equivalently, 
 If $B^i$ depends on prices $p$, the equilibrium allocation is generally Constrained Inefficient.%
 \footnote{
-    An exception being homothetic preferences.
+    An exception is homothetic preferences.
 }
 \end{tcolorbox}
 
@@ -44,7 +44,7 @@ Let $z \in R^K$ be the asset portfolio vector with date-0 price vector $q$. The 
 
 \section{Sources of Inefficiency}
 
-\subsection{1. Bid--Ask Spread (Transaction Costs)}
+\subsection{Bid--Ask Spread (Transaction Costs)}
 
 \textbf{Inefficiency Analysis:}
 \begin{itemize}
@@ -67,7 +67,7 @@ We distinguish between long ($z^L$) and short ($z^S$) positions. Let $q^a$ be th
     \]
 \end{itemize}
 
-\subsection{2. Exogenous Borrowing Limits}
+\subsection{Exogenous Borrowing Limits}
 
 \textbf{Inefficiency Analysis:}
 \begin{itemize}
@@ -89,7 +89,7 @@ Impose a cap $B^i \geq 0$ on the value of short positions (or borrowing).
     \]
 \end{itemize}
 
-\subsection{3. Default (Limited Enforcement)}
+\subsection{Default (Limited Enforcement)}
 
 \textbf{Inefficiency Analysis:}
 \begin{itemize}
@@ -116,7 +116,7 @@ Agents choose collateralized short positions. Let $r_s$ be the actual repayment 
     \item \textbf{Pricing:} Lenders are rational, so $q$ reflects the anticipated repayment schedule $\{r_s\}$.
 \end{itemize}
 
-\subsection{4. Collateral (Secured Borrowing)}
+\subsection{Collateral (Secured Borrowing)}
 
 \textbf{Inefficiency Analysis:}
 \begin{itemize}
@@ -142,7 +142,7 @@ Introduce a durable, collateralizable asset $k \geq 0$ with date-0 price $p_0^k$
     \textit{Note: The term $P_s^k k$ represents the resale value of the collateral asset held by the borrower, net of the repayment $r_s$.}
 \end{itemize}
 
-\subsection{5. Information Asymmetry}
+\subsection{Information Asymmetry}
 
 \textbf{Inefficiency Analysis:}
 \begin{itemize}
@@ -159,20 +159,3 @@ Introduce a durable, collateralizable asset $k \geq 0$ with date-0 price $p_0^k$
     \]
     where $T_s$ is the net financial transfer in state $s$.
 \end{enumerate}
-
-\subsection{6. Pecuniary Externality}
-
-\textbf{Analysis:}
-Changes in prices are not market failures in complete markets (First Welfare Theorem). However, in incomplete markets, if prices enter constraints (e.g., Collateral constraints $r_s \leq \mu_s P_s^k k$), price changes affect the feasible set of other agents.
-\begin{itemize}
-    \item \textbf{Result:} Constrained Inefficiency (Greenwald-Stiglitz / Geanakoplos-Polemarchakis).
-    \item \textbf{Modification:} This is captured structurally by \textbf{Section 4 (Collateral)} or any borrowing limit tied to endogenous prices.
-\end{itemize}
-
-\subsection{7. Precautionary Saving Motive}
-
-\textbf{Analysis:}
-\begin{itemize}
-    \item \textbf{Status:} Not a distortion per se. It is an optimal response to uncertainty and convexity of marginal utility ($u''' > 0$).
-    \item \textbf{Modification:} No modification to the constraints is required.
-\end{itemize}

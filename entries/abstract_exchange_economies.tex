@@ -1,5 +1,30 @@
 \chapter{Abstract Exchange Economies}
 \section{Welfare Analysis}
 \begin{proposition}[(First Welfare Theorem)]
-    In an abstract exchange economy, any competitive equilibrium allocation is Pareto efficient.
+    In an abstract exchange economy characterized by $w \in \mathbb{R}^{S+1}_{++}$, 
+    any competitive equilibrium allocation $x \in \mathbb{R}^{S+1}_{+}$
+    is Pareto efficient.
 \end{proposition}
+
+\noindent \textbf{Proof:} We prove by contradiction. 
+Suppose there exists $y$ that Pareto dominates $x$, then 
+$u(y^i_0) + \sum_s \text{Prob}_s u(y^i_s) \geq_P (x^i_0) + \sum_s \text{Prob}_s u(x^i_s) \forall i$,
+but for some $j$ 
+$u(y^j_0) + \sum_s \text{Prob}_s u(y^j_s) >_P (x^j_0) + \sum_s \text{Prob}_s u(x^j_s)$.
+Then by the Walras Law and the Law of Revealed Prferences, we have 
+\[
+p_0 (y^i_0 - w^j_0) + \sum_s p_s (y^i_s - w^j_s) \geq p_0 (x^i_0 - w^i_0) + \sum_s p_s (x^i_s - w^i_s) = 0, \quad \text{ and }
+\]
+\[
+p_0 (y^j_0 - w^j_0) + \sum_s p_s (y^j_s - w^j_s) > p_0 (x^j_0 - w^j_0) + \sum_s p_s (x^j_s - w^j_s) = 0
+\]
+As a result, we have 
+\[
+p_0 \sum_i (y^i_0 - w^i_0) + \sum_s p_s \sum_i (y^i_s - w^i_s) > 0
+\]
+Since $p_0, p_s$ are strictly positive, we have 
+there exists an $s$ such that
+\[
+\sum_i (y^i_s - w^i_s) > 0,
+\]
+which implies that $y$ is not feasible. \(\blacksquare\)
