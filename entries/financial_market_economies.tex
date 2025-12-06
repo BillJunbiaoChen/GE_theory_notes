@@ -1,6 +1,34 @@
 \chapter{Financial Market Economies}
+
+
+\section{Arrow-Debreu Equilibrium}
+\begin{definition}
+  An Arrow-Debreu equilibrium is defined by an allocation $x_0, \{x_s\}$,
+  such that 
+  \beign{enumerate}
+    \item given the goods prices $\phi_0, \phi_s$, the allocation solves the 
+    consumer's problem below:
+    \begin{align*}
+      \max_{x_o, \{x_s\}} \quad & u_0(x_0) + \sum_{s} \text{Prob}_s u_s(x_s) \\
+      \text{s.t.} \quad & \phi_0 (x_0 - w_0^i) + \sum_s \phi_s (x_s - w_s^i) = 0
+    \end{align*}
+    \item Goods market clears:
+    \[
+    \sum_i x^i \leq \sum_i w^i
+    \]
+\end{enumerate}
+\end{definition}
+
+
+
+
+
+
+
+
+
 \section{No-Arbitrage}
-\subsection{No Arbitrage}
+
 There are multiple definitions of the No Arbitrage condition.
 Essentially, they all require zero profit on the spot market at time 0, 
 and the future financial market no matter what the future state will be.
@@ -88,7 +116,7 @@ Defining $\pi_s = m_s \text{Prob}_s$, we have the \textbf{Fundamental Equation o
 \exists \hat{\pi} \in \mathbb{R}^{S+1}_{++} \text{ such that } \hat{\pi}  \tau = 0, \forall \tau \in \text{span}(W)
 \]
 \end{tcolorbox}
-\textbf{Proof of the No-Arbitrage Theorem}
+\noindent \textbf{Proof of the No-Arbitrage Theorem}
 \begin{itemize}
   \item[($\Rightarrow$)]
   We prove this direction in two steps:
@@ -160,3 +188,78 @@ In words, once you find a viable $\pi$, there are only $S-J$ elements in that $\
 
 
 \section{Arrow Theorem}
+\subsection{Budget constraints equivalence}
+\begin{proposition}
+  The following two budget constraints are equivalent under No-Arbitrage:
+  \begin{enumerate}
+    \item $p_0 (x_0^i - w_0^i) + q z = 0 \quad \text{ and } \quad  p_s (x_s^i - w_s^i) = a_s z$
+    \item $p_0 (x_0^i - w_0^i) + \sum_s \pi_s p_s (x_s^i - w_s^i) = 0 \quad$ and, 
+    \[
+    \begin{bmatrix} 
+      \vdots \\
+      p_s (x_s^i - w_s^i) \\
+      \vdots \\
+    \end{bmatrix} \in \text{span}(A)
+    \]
+  \end{enumerate}
+\end{proposition}
+\noindent \textit{Remarks:} When the asset market is complete $\text{span}(A) = \mathbb{R}^{J} = \mathbb{R}^{S}$.
+
+\noindent \textbf{Proof}
+Suppose $q$ satisfies the No-Arbitrage condition, we have the following asset pricing equation
+\[
+q = \pi A, \quad \text{ with } q \in  \mathbb{R}^{J}, \pi \in  \mathbb{R}^{S}, A \in \mathbb{R}^{S \times J}
+\]
+Now the first equation of the first set of constraints becomes
+\[
+p_0 (x_0^i - w_0^i) + q z = p_0 (x_0^i - w_0^i) + \pi A z = 0,
+\]
+which is equivalent to 
+\[
+p_0 (x_0^i - w_0^i) + \sum_s \pi_s a_s z  = 0
+\]
+Using the the second equation of the first set of constraints to replace $a_s z$, we have 
+\[
+p_0 (x_0^i - w_0^i) + \sum_s \pi_s p_s(x_s^i - w_s^i)  = 0
+\]
+To complete the proof, notice that the second equation of the second set of constraints is simply the matrix for of 
+\[
+p_s (x_s^i - w_s^i) = a_s z
+\]
+\noindent $\Rightarrow$
+\[
+    \begin{bmatrix} 
+      \vdots \\
+      p_s (x_s^i - w_s^i) \\
+      \vdots \\
+    \end{bmatrix} = 
+        \begin{bmatrix} 
+      \vdots \\
+      a_s \\
+      \vdots \\
+    \end{bmatrix} z
+\]
+which belongs to the span of $A$. \(\blacksquare\)
+
+
+\subsection{Arrow's Theorem}
+\begin{theorem}[(Arrow's Theorem)]
+  Under the No-Arbitrage condition, 
+  any Arrow-Debreu equilibrium $(x_0^*, \{x_s^*\}, \{p_0^*, p_s^* \})$ 
+  can be supported as a Financial Market Equilibrium (FME) $(x_0^*, \{x_s^*\}, z^*, \{p_0^*, q^* \})$,
+  where $z^*$ is the portfolio that satisfies the budget constraints in the FME, 
+  and $q^*$ satisfies the No-Arbitrage condition.
+\end{theorem}
+
+\noindent \textbf{Proof}
+Since goods market clearing implies financial market clearing, the market clearing conditions in 
+the FME is the same as the one in Arrow-Debreu equilibrium.
+Now, we only need to discuss the equivalence of the budget constraints between these two economies.
+
+Since the market in complete, the spaning condition in the FME is not binding.
+Then the budget constraints in the FME reduce to
+\[
+p_0 (x_0^i - w_0^i) + \sum_s \pi_s p_s (x_s^i - w_s^i) = 0
+\]
+Now using $p_0 = \phi_0$ and $p_s = \pi_s \phi_s$,
+we can immediately see the equivalence between the AD equilibrium and the FME. \(\blacksquare\)
