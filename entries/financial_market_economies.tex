@@ -79,7 +79,71 @@ Defining $\pi_s = m_s \text{Prob}_s$, we have the \textbf{Fundamental Equation o
     q = \mathbb{E}\left(m A \right).
 \end{equation}
 \end{tcolorbox}
+
+\clearpage
+\begin{tcolorbox}
+\textbf{Defintion (No-Arbitrage Theorem)}
+\[
+\text{span}(W) \cap \mathbb{R}^{S+1}_{+} = \{ \bm{0}\} \Leftrightarrow
+\exists \hat{\pi} \in \mathbb{R}^{S+1}_{++} \text{ such that } \hat{\pi}  \tau = 0, \forall \tau \in \text{span}(W)
+\]
+\end{tcolorbox}
 \textbf{Proof of the No-Arbitrage Theorem}
+\begin{itemize}
+  \item[($\Rightarrow$)]
+  We prove this direction in two steps:
+  \begin{enumerate}
+    \item \textcolor{blue}{``Strict positivity''}.
+    First, we define a simplex in the space of $\mathbb{R}^{S+1}$: 
+    \[
+    \Delta = \{\tau \in \mathbb{R}^{S+1}: \sum_{s=0}^S \tau_s = 1 \}
+    \] 
+    By the definition of No-Arbitrage condition (i.e., the LHS of the theorem), 
+    we have
+    \[
+    \text{span}(W) \cap \Delta = \emptyset
+    \]
+    Now, invoking the \textbf{Strong Separating Hyperplane Theorem} (this is the essence of the proof),
+    then there exists $\hat{\pi}$, such that
+    \begin{equation}
+      \label{eqn:no_arbitrage_proof_key}
+      \sup_{\tau \in \text{span}(W)} \hat{\pi} \tau < 
+      \inf_{\tau \in \Delta} \hat{\pi} \tau
+    \end{equation}
+    To prove $\hat{\pi} \in \mathbb{R}^{S+1}_{++}$, 
+    suppose there exists a $\hat{\pi}$ whose $s^{th}$ component, $\pi_s \leq 0$, 
+    then since the base vector ($e_s \in \Delta $), we have 
+    $$\inf_{\tau \in \Delta} \hat{\pi} \tau \leq e_s \tau \leq 0 $$
+    However, $0 \in \text{span}(W)$ (in words, no buying and selling in the asset market), 
+    which implies that 
+    \[
+    \sup_{\tau \in \text{span}(W)} \hat{\pi} \tau \geq \hat{\pi} 0  = 0
+    \]
+    Hence, we have the $ 0 \leq LHS < RHS \leq 0$ in equation~(\ref{eqn:no_arbitrage_proof_key}), 
+    a contradiction. 
+  \item \textcolor{blue}{``Orthorgonality''}.. Suppose there exists a $\tau \in \text{span}(W)$ such that $\hat{\pi} \tau \neq 0$.
+  Then, we can find an $\alpha$ such that $\hat{\pi} \alpha \tau$ is arbitrarily large.
+  (In words, agent can make infinite profit if there is an opporitunity for arbitrage).
+  However, the RHS of the theorem is bounded above (because $\Delta$ is a compact set).
+  Then we have a contradiction. Hence, 
+  \[
+  \hat{\pi} \tau = 0 \forall \tau \in \text{span}(W)
+  \]
+  \end{enumerate}
+  \item[($\Leftarrow$)] Now suppose there exists an arbitrage opportunity $\tau^* \in \text{span}(W)$ such that 
+  $\tau^* \in \mathbb{R}^{S+1} \backslash \{0 \}$.
+  Since $\hat{\pi} \in  \mathbb{R}^{S+1}_{++}$, we have $\hat{\pi} \tau^* > 0$.
+  However, this contradicts to the assumption that 
+  $\hat{\pi} \text{span}(W) = 0$ as $\tau^* \in \text{span}(W)$. \(\blacksquare\)
+\end{itemize}
+
+
+
+
+
+
+
+
 
 
 
