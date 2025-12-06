@@ -1,6 +1,6 @@
 \chapter{Abstract Exchange Economies}
 \section{Welfare Analysis}
-\begin{proposition}[(First Welfare Theorem)]
+\begin{proposition}[First Welfare Theorem]
     In an abstract exchange economy characterized by $w \in \mathbb{R}^{S+1}_{++}$, 
     any competitive equilibrium allocation $x \in \mathbb{R}^{S+1}_{+}$
     is Pareto efficient.
@@ -8,9 +8,9 @@
 
 \noindent \textbf{Proof:} We prove by contradiction. 
 Suppose there exists $y$ that Pareto dominates $x$, then 
-$u(y^i_0) + \sum_s \text{Prob}_s u(y^i_s) \geq_P (x^i_0) + \sum_s \text{Prob}_s u(x^i_s) \forall i$,
-but for some $j$ 
-$u(y^j_0) + \sum_s \text{Prob}_s u(y^j_s) >_P (x^j_0) + \sum_s \text{Prob}_s u(x^j_s)$.
+$y^i \succeq_P x^i \forall i$,
+and  
+$y^j \succ_P x^j$ for some $j$.
 Then by the Walras Law and the Law of Revealed Prferences, we have 
 \[
 p_0 (y^i_0 - w^j_0) + \sum_s p_s (y^i_s - w^j_s) \geq p_0 (x^i_0 - w^i_0) + \sum_s p_s (x^i_s - w^i_s) = 0, \quad \text{ and }
@@ -18,13 +18,80 @@ p_0 (y^i_0 - w^j_0) + \sum_s p_s (y^i_s - w^j_s) \geq p_0 (x^i_0 - w^i_0) + \sum
 \[
 p_0 (y^j_0 - w^j_0) + \sum_s p_s (y^j_s - w^j_s) > p_0 (x^j_0 - w^j_0) + \sum_s p_s (x^j_s - w^j_s) = 0
 \]
-As a result, we have 
+Summing over $i$, we have 
 \[
 p_0 \sum_i (y^i_0 - w^i_0) + \sum_s p_s \sum_i (y^i_s - w^i_s) > 0
 \]
-Since $p_0, p_s$ are strictly positive, we have 
+Since $p_0, p_s$ are strictly positive, 
 there exists an $s$ such that
 \[
 \sum_i (y^i_s - w^i_s) > 0,
 \]
 which implies that $y$ is not feasible. \(\blacksquare\)
+
+\textcolor{blue}{The converse of the First welfare theorem is the Second welfare theorem below.}
+\noindent \textbf{Interpretation:}
+In words, the Second Welfare Theorem states that 
+any Pareto efficient allocation can be decentralized as a competitive equilibrium via 
+transfer (AKA redistribution of initial endowment).
+
+\begin{proposition}[Second Welfare Theorem]
+    For any economy characterized by $w \in \mathbb{R}^{LI}_{++}$, 
+    any Pareto efficient allocation $x \in \mathbb{R}^{LI}_{+}$
+    can be decentralized as a competitive equilibrium via price, $p \in \mathbb{R}^L_{++}$,
+    under redistributioned endowments 
+    with $\sum_i w_i + t_i = w$ (i.e., $\sum_i t_i = 0$).
+\end{proposition}
+
+\noindent \textbf{Proof} 
+Let $x_i = w_i + t_i$.
+First, define the strict upper contour set for agent $i$, 
+\[
+B^i(x_i) := \{y_i \in \mathbb{R}^L_{+}: U(y_i) > U(x_i) \}
+\]
+Then, define the aggregate strict upper contour set as 
+\[
+B(x) := \bigg\{\sum_i y_i \in \mathbb{R}^L_{+}: y_i \in B^i(x_i) \forall i \bigg\}
+\]
+Since $B^i(x_i)$ is convex, the aggregate upper contour set is also convex. 
+In addition, $(\sum_i x_i) \notin B(x)$ due to the strictness of the upper contour set. 
+Then, by the Separting Hyperplane theorem, there exists a nonzero price vector $p$, such that
+\[
+\inf_{a \in B(x)} p a \geq p \sum_i x_i
+\]
+We will use this equation to establish that 
+(1) prices are strictly positive,%
+\footnote{Intuitively, valued goods should not have non-positive prices.}
+and 
+(2) under such price, no individual will trade away from $x_i$.
+
+\noindent \textbf{Part 1.}
+Suppose there exists some $l$ such that $p_l < 0$, 
+by the fact that utility is \textbf{strictly} monotonic, 
+consumers can increase their consumption of $l$ arbitrarily large such that 
+$p a < p \sum_i x_i$. Then, we have a contradiction. 
+
+Now suppose there exists some $l$ such that $p_l = 0$, 
+then by the continuity of $B(x)$, there exists 
+an allocation $y$ such that $p y < p \sum_i x_i$, where $y$ is defined by
+\[
+y_k = x_k - \epsilon, \text{ and } y_l = x_l + \delta
+\]
+with sufficiently small $epsilon$ and sufficiently large $\delta$. 
+Again, we obtain a contradiction.
+
+\noindent \textbf{Part 2.}
+Finally, we prove that, 
+any bundle in $B^i(x_i)$ is unaffordable under $p \in \mathbb{R}^L_{++}$.
+Since $p x_i > 0$, there exists a strictly cheaper bundel such that 
+\[
+p \underline{x}_i < p x_i
+\]
+It follows that $\alpha y_i + (1 - \alpha) \underline{x}_i$ < p x_i$ for some $y \in B^i(x_i)$ and $\alpha \in (0,1)$.
+But by the convexity of $B^i(x_i)$, we have
+$\alpha y_i + (1 - \alpha) \underline{x}_i := \tilde{x}_i \in B^i(x_i)$.
+Then, summing over individuals, we have
+\[
+p \tilde{x}_i + \sum_{j \neq i} p x_j < p \sum_{j}  x_j,
+\]
+which contradicts to the separating hyperplane condition. \(\blacksquare\)
