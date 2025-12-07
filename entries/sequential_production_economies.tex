@@ -122,6 +122,36 @@ Q^h = Q^h(k^h), \quad \forall h \in H
 \label{table:equilibrium}
 \end{table}
 
+\begin{tcolorbox}
+    \begin{proposition}
+        Let $(\theta, k)$ be an equilibrium allocation. 
+        Consider an enlarged economy where agents can hold equity 
+        $\theta_e^i$ in the original firm $f(k)$ 
+        and $\gamma_e^i$ in an off-equilibrium firm $f(k')$.
+        Then:
+        \begin{itemize}
+            \item Under \textbf{Rational Conjectures}, $\gamma^i_e = 0$ for all $i$.
+            \item Under \textbf{Drèze Conjectures}, the condition $\gamma^i_e = 0$ for all $i$ is not guaranteed to hold (trade may occur).
+        \end{itemize}
+    \end{proposition}
+\end{tcolorbox}
+\noindent \textbf{Proof (Sketch):}
+
+Mathematically, this result is because
+
+\begin{align*}
+\mathbb{E}[m^i p \circ f^h({k^h}')] & \leq Q^h({k^h}'), \quad \forall i \\
+\exists j, \text{ such that } \quad \mathbb{E}[m^j p \circ f^h({k^h}')] & > D^h({k^h}') 
+\end{align*}
+
+In words, the proposition says:
+\begin{itemize}
+    \item In the case where the equity is priced using the highest-bidder's evaluation,
+    no one is going to buy the off-equilibrium firms if the highest-bidder doesn't buy it.
+    \item However, if the equity of the off-equilibrium firms are priced using equilibrium holders' values,
+    there might exist a potential buyer who values these firms more and thus want to buy them.
+\end{itemize}
+
 \clearpage 
 \begin{tcolorbox}
     \begin{proposition}
