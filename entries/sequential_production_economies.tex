@@ -7,7 +7,8 @@ Firms buy at time 0 on the spot market and sell at time 1 on the state-contingen
     \item Arrow-Debreu equilibrium 
     \item Financial Market equilibrium 
     \item Minkowski's rational price conjecture and Dreze conjecture 
-    \item Constrained Pareto efficiency
+    \item The most important proof: (L = 1, H = 1, J = 0) \\
+    \underline{Competitive equilibria of FME with production under Rational Conjectures are Constrained P.E.}
     \item Corporate finance (e.g., stocks vs. bonds) 
 \end{itemize}
 
@@ -51,8 +52,77 @@ An Arrow-Debreu Equilibrium is $(x, y, \phi)
     \]
 \end{enumerate}
 
+\clearpage
+\section{Financial Market Equilibrium (with Production)}
 
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|m{8cm}|m{6cm}|}
+\hline
+\textbf{Full Model} & \textbf{Simplified ($J = 0, L = H = 1$)} \\ \hline
+\noindent \textbf{Consumer solves}
+\begin{align*}
+    \max_{x^i, \theta^i, z^i} u^i(x^i_0) + \sum_s \text{Prob}_s u^i(x^i_s)  \\
+    \text{s.t.} \quad p_0 (x^i_0 - w^i_0) + q z^i = (-p_0 k + Q) \theta^i_0 - Q \theta^i \\
+    p_s (x^i_s - w^i_s) = \theta^i p_s f^h(k;s) + a_s z^i
+\end{align*}
+& 
+\noindent \textbf{Consumer solves}
+\begin{align*}
+    \max_{x^i, \theta^i, z^i} u^i(x^i_0) + \sum_s \text{Prob}_s u^i(x^i_s)  \\
+    \text{s.t.} \quad  (x^i_0 - w^i_0)  = (- k + Q) \theta^i_0 - Q \theta^i \\
+   (x^i_s - w^i_s) = \theta^i p_s f^h(k;s) 
+\end{align*} 
+\vspace{-2mm} \\ \hline
+\noindent \textbf{Firm solves} 
+\[
+\max_{k^h} \quad - p_0 k^h + Q(k^h)
+\]
+& 
+\noindent \textbf{Firm solves} 
+\[
+\max_{k^h} \quad - k^h + Q(k^h)
+\]
+\vspace{-2mm} \\ \hline
+\noindent \textbf{Market clears} 
+\begin{align*}
+\sum_i x^i_0 + \sum_h k^h \leq \sum_i w^i_0 \\ 
+\sum_i x^i_s \leq \sum_i w^i_s + \sum_h f^h(k^h;s) \\ 
+\sum_i z^i = 0 \quad \text{ and } \quad \sum_i \theta^i = 1
+\end{align*} 
+& 
+\noindent \textbf{Market clears} 
+\begin{align*}
+\sum_i x^i_0 + \sum_h k^h \leq \sum_i w^i_0 \\ 
+\sum_i x^i_s \leq \sum_i w^i_s + \sum_h f^h(k^h;s) \\
+\sum_i \theta^i = 1
+\end{align*} 
+\vspace{-2mm} \\ \hline
+\noindent \textbf{Rational Conjectures} 
+\begin{align*}
+Q^h(k^h) = \max_i \mathbb{E}[m^i p \circ f^h(k^h)]
+\end{align*} 
+& 
+\noindent \textbf{Rational Conjectures} 
+\begin{align*}
+Q^h(k^h) = \max_i \mathbb{E}[m^i p \circ f^h(k^h)]
+\end{align*} 
+\vspace{-2mm} \\ \hline
+\noindent \textbf{Consistency in equity prices} 
+\begin{align*}
+Q^h = Q^h(k^h), \quad \forall h \in H
+\end{align*} 
+& 
+\noindent \textbf{Consistency in equity prices} 
+\begin{align*}
+Q^h = Q^h(k^h), \quad \forall h \in H
+\end{align*} 
+\\ \hline
+\end{tabular}
+\label{table:equilibrium}
+\end{table}
 
+\clearpage
 \section{Rational price conjectures}
 
 

@@ -277,14 +277,41 @@ we can immediately see the equivalence between the AD equilibrium and the FME. \
 Consider an economy with non-covex commodity space, 
 for example, when the quantities of some goods are discrete (namely, indivisible goods).
 Then, the aggregate excess demand function may not be continuous.
-To tackle this issue, one can consider the convex hull of the aggregate excess demand function, 
-and apply the Caratheodory's theorem to establish the existence of equilibrium.
-Concretely, suppose $0 \notin Z(\pi, p)$, then 
-but $0 \in \text{conv}(Z(\pi, p))$,
-by Caratheodory's theorem, there exists $S+1 +1$ vector sucht that 
+To tackle this issue, one can consider the convex hull of the aggregate excess demand function.
+By Kakutani's FPT, we have $0 \in \text{conv}(Z(\pi, p))$.
+If $0 \in Z(\pi, p)$, then we are done.
+Otherwise, we can apply the Caratheodory's theorem to find $S+1 +1$ vector such that 
 $\sum \alpha_k z_k = 0 \text{ with } z_k \in Z(\pi, p), \alpha_k \geq 0, \sum \alpha_k = 1$.
-Then, we can assign $\alpha_k$ fraction of type $i$ agents to choose $z_{ik}$.
+Since agent $i$ is indifferent among $\{z_{ik}\}$ across $k$,
+we can assign $\alpha_k$ fraction of type $i$ agents to choose $z_{ik}$.
 As a result, the aggregate excess demand is zero. \(\blacksquare\)
 
 
 \section{Aggregation}
+As many economic analysis are conducted under the representative agent framework,
+such as the canonical consumption-based CAPM model, 
+it is important to understand under what conditions we can aggregate agents' behavior.
+
+\begin{tcolorbox}
+  \begin{proposition}
+    \label{prop:budget_sep_thm}
+    If utility functions are identitical and homethetic, we have the equilibrium prices \textbf{independent} 
+    of the distribution of endowments across agents.
+    (In other words, $p$ is a functionm of only aggregate endowmenet $\sum_i w^i$.)
+  \end{proposition}
+\end{tcolorbox}
+
+\noindent \textbf{Proof of proposition~\ref{prop:budget_sep_thm} (Sketch):}
+Define demand function $x_s^i(p_s, y_s^i)$.
+By Walras' law, we have $p_s x_s^i(p_s, y_s^i) = y_s^i$, and $\sum_i y_s^i = p_s \sum_i x^i_s = p_s \sum_i w^i_s$.
+Then, we have 
+\begin{align*}
+  & \sum_i p_s x_s^i(p_s, y_s^i) = \sum_i y_s^i \\ 
+  \Rightarrow \quad & \sum_i p_s x_s(p_s, y_s^i)  = p_s \sum_i w^i_s \\
+  \Rightarrow \quad & p_s \sum_i  y_s^i x_s(p_s, 1) = p_s \sum_i w^i_s \\
+  \Rightarrow \quad & \sum_i y_s^i x_s(p_s, 1) =  \sum_i w^i_s \\
+  \Rightarrow \quad &  x_s(p_s, \sum_i y_s^i) =  \sum_i w^i_s \\
+  \Rightarrow \quad  &  x_s(p_s, p_s \sum_i w^i_s) =  \sum_i w^i_s
+\end{align*}
+Therefore, $p_s$ is uniquely determined by the equation above. \(\blacksquare\)
+
