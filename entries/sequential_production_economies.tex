@@ -122,6 +122,51 @@ Q^h = Q^h(k^h), \quad \forall h \in H
 \label{table:equilibrium}
 \end{table}
 
+\clearpage 
+\begin{tcolorbox}
+    \begin{proposition}
+        Assuming $J = 0, L = H = 1$, competitive equilibria of the FME with production are constrained P.E.
+    \end{proposition}
+\end{tcolorbox}
+The key of the proof relies on the optimization of the firm.
+\\
+\noindent \textbf{Proof (Sketch):}
+Let $(x, \theta, k)$ be a competitive equilibrium. 
+Suppose there exists $({x^i_0}', {\theta^i}') \succeq_{P} ({x^i_0}, {\theta^i})$, then by 
+the Law of Revealed Preference, we have 
+\[
+{x^i_0}' + Q(k') {\theta^i}' \geq {x^i_0} + Q(k) {\theta^i} \forall i
+\]
+where some $i$ the inequality is strict. 
+Now using the budget constraint and the consistency in the eqlm,  
+($x^i_0 = w^i_0 + ( -k + Q(k))\theta^i_0 - Q(k) \theta^i )$, we have 
+\begin{align*}
+{x^i_0}' + Q(k') {\theta^i}' & \geq {x^i_0} + Q(k) {\theta^i}  \\ 
+& =  w^i_0 + ( -k + Q(k))\theta^i_0 - Q(k) \theta^i + Q(k) {\theta^i}  \\ 
+& =  w^i_0 + ( -k + Q(k))\theta^i_0  
+\end{align*}
+Summing over $i$, and applying the market clearing condition ($\sum_i {\theta^i}' = 1$), then we have 
+the following strict inequality
+\[
+Q(k') + \sum_i {x^i_0}' >  -k + Q(k) + \sum_i w^i_0 
+\]
+Now here comes the critical step:
+Due to the optimization of the firm, we have
+\[
+-k + Q(k) \geq -k' + Q(k')
+\]
+It follows that 
+\[
+Q(k') + \sum_i {x^i_0}' >  -k' + Q(k') + \sum_i w^i_0 
+\]
+Hence, we derive a contradiction:
+$\sum_i {x^i_0}' + k' > \sum_i w^i_0$. \(\blacksquare\)
+
+
+
+
+
+
 \clearpage
 \section{Rational price conjectures}
 
