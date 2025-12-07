@@ -1,0 +1,79 @@
+\chapter{Sequential Production Economies}
+\section*{Timeline}
+Firms buy at time 0 on the spot market and sell at time 1 on the state-contingent markets.
+
+\section{Takeaways}
+\begin{itemize}
+    \item Arrow-Debreu equilibrium 
+    \item Financial Market equilibrium 
+    \item Minkowski's rational price conjecture and Dreze conjecture 
+    \item Constrained Pareto efficiency
+    \item Corporate finance (e.g., stocks vs. bonds) 
+\end{itemize}
+
+\section*{Notations}
+\begin{itemize}
+    \item $\delta^{ih}$: endowment of firms' shares 
+    \item $\phi$: prices 
+    \item $\theta$: quantity of equity trade
+\end{itemize}
+
+\clearpage 
+\section{Arrow-Debreu Equilibrium (with Production)}
+\noindent \textbf{Definition.} \\
+An Arrow-Debreu Equilibrium is $(x, y, \phi) 
+\in \mathbb{R}^{L(S+1)I}_{+} \times \Upsilon \times \mathbb{R}^{L(S+1)}_{++}$
+(N.B.: $y = [y_h], \text{ with } y_h = (-k^h, f^h(k^h))$.) such that 
+\begin{enumerate}
+    \item Given $\phi$, each individual solves the utility maximization pb:
+    \begin{align*}
+        \max_{x^i_0, x^i_s} \quad & u^i(x^i_0) + \sum_s \text{Prob}_s u^i(x^i_s) \\
+        \text{subject to: } \quad & \phi_0 (x^i_0 - w^i_0) + \sum_s \phi_s (x^i_s - w^i_s)  + \sum_h \delta^{ih} k_h = 0 
+    \end{align*}
+    \item Each firm solves the following pb:
+    \begin{align*}
+        \max_{k^h} \quad & - \phi_0 k^h + \textcolor{blue}{\sum_s \phi_s} f^h(k_h;s)
+    \end{align*}
+    \item Market clears%
+    \footnote{Since $y^h = [-k^h, f^h(k^h)]$, this condition is the same as 
+    \begin{align*}
+        \sum_i x_0^i & \leq \sum_i w_0^i - \sum_h k^h \\
+        \sum_i x_s^i & \leq \sum_i w_s^i + \sum_h f^h(k^h;s)
+    \end{align*}
+    }
+    \begin{align*}
+        \sum_i x^i \leq \sum_i w^i + \sum_h y^h
+    \end{align*}
+    where $x^i \in \mathbb{R}^{L(S+1)}_{+}$.
+    \item Profits are 
+    \[
+    \pi^h = - \phi_0 k^h + \sum_s \phi_s f^h(k^h;s)
+    \]
+\end{enumerate}
+
+
+
+\section{Rational price conjectures}
+
+
+\begin{tcolorbox}
+\begin{proposition}
+Define $Q^h(k^h) := \max_i \mathbb{E}[m^i p \circ f^h(k^h)]$, and 
+$D^h(k^h) := \mathbb{E}[\sum_i \theta^i_h m^i p \circ f^h(k^h)]$, we have
+\[
+\text{FME with Rational Conjectures } (Q^h) \quad \overset{\Rightarrow}{\nLeftarrow} \quad \text{FME with Dreze Conjectures} (D^h)
+\]
+\end{proposition}
+\noindent \textbf{Proof (Sketch):} Note that in equilibrium, 
+these equity prices coincide with RC and Dreze Conjecture, namely, $Q^h({k^h}^*) = D^h({k^h}^*)$,
+where ${k^h}^*$ is the equilibrium input choice of firm $h$.
+However, away from equilibrium, we have 
+\[
+Q^h(k^h) \geq D^h(k^h)
+\]
+Hence, there are no profitable deviations from equilibrium under RC, (that is the $\Rightarrow$ part),
+but there could be profitable deviations under Dreze (that is the $\nLeftarrow$ part).
+\(\blacksquare\)    
+\end{tcolorbox}
+
+
