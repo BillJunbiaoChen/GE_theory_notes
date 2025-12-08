@@ -9,7 +9,7 @@ Firms buy at time 0 on the spot market and sell at time 1 on the state-contingen
     \item Minkowski's rational price conjecture and Dreze conjecture 
     \item The most important proof: (L = 1, H = 1, J = 0) \\
     \underline{Competitive equilibria of FME with production under Rational Conjectures are Constrained P.E.}
-    \item Corporate finance (e.g., stocks vs. bonds) 
+    \item Corporate finance (e.g., equity vs. bonds) 
 \end{itemize}
 
 \section*{Notations}
@@ -222,3 +222,45 @@ but there could be profitable deviations under Dreze (that is the $\nLeftarrow$ 
 \end{tcolorbox}
 
 
+\section{Corporate Finance}
+\subsection{FME with bonds and equity}
+\noindent \textbf{Definition.} 
+A competitive equilibrium of a Financial Market Economy with production, rational price conjecture, 
+under 2 periods (assuming $I > 1$ individuals, 
+$S$ states,  
+$J = 1$ assets, and $H =1$ firm) is 
+defined by 
+prices and quantities 
+$(x, z, \theta, B, k, q, Q, P) \in 
+\mathbb{R}^{L(S+1)I}_{+} \times \mathbb{R}^{JI}_{+} \times \mathbb{R}^{HI}_{+} \times \mathbb{R}^{HI}_{+} 
+\times \mathbb{R}^{LH}_{+} \times \mathbb{R}^{J}_{++} \times \mathbb{R}^{H}_{++} \times \mathbb{R}^{H}_{++}$, such that 
+\begin{enumerate}
+    \item Each consumer solves 
+    \begin{align*}
+        \max_{x^i, z^i, \theta^i, B^i} \quad & u^i(x^i_0) + \sum_{s \in S} \text{prob}_s u^i(x^i_s) \\
+        \text{ subject to: } \quad &  x^i_0 - \omega^i_0 =  \left(-k + Q \right) \theta^i_0 - Q \theta^i - P B^i - q z^i \\
+        & x^i_s - \omega^i_s = a_s z^i + \sum_h \theta^i_h \max\left\{0, f^h(k^h;s) - B_h \right\} + \sum_h B^i_h \min\left\{B_h, f^h(k^h;s)\right\} , \quad \forall s \in S
+    \end{align*}
+    \item Each firm solves 
+    \begin{align*}
+        \max_{k^h, B^h} \quad & -k^h + Q(k^h, B^h) + P(k^h, B^h) B^h
+    \end{align*}
+    \item No short sales:
+    \begin{align*}
+        \text{Goods: } \quad \sum_i (x^i - w^i) & = 0 \\
+        \text{Assets: } \quad \sum_i z^i & = 0 \\
+        \text{Equity: } \quad \sum_i \theta^i & = 1 
+    \end{align*}
+    \item Markets clear 
+    \begin{align*}
+        \text{Goods: } \quad \sum_i (x^i - w^i) & = 0 \\
+        \text{Assets: } \quad \sum_i z^i & = 0 \\
+        \text{Equity: } \quad \sum_i \theta^i & = 1 
+    \end{align*}
+    \item The price of equity satisfies rational conjectures (for in- and off- equilibrium paths)
+    \begin{align*}
+    Q^h (k^h, B^h) & = \max_i \mathbb{E}\bigg[m^i [\max\{0, f(k;s) - B \}] \bigg], \quad \forall h \\
+    P^h (k^h, B^h) & = \max_i \mathbb{E}\bigg[m^i [\min \{1, \frac{f(k;s)}{B} \}] \bigg], \quad \forall h
+    \end{align*}
+    \item Consistency: $Q^h = Q^h(k^h, B^h)$ and  $P^h = P^h(k^h, B^h)$.
+\end{enumerate}
