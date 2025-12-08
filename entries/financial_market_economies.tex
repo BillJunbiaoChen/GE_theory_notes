@@ -190,6 +190,7 @@ In words, once you find a viable $\pi$, there are only $S-J$ elements in that $\
 \section{Arrow Theorem}
 \subsection{Budget constraints equivalence}
 \begin{proposition}
+  \label{prop:equiv_constraints_FME}
   The following two budget constraints are equivalent under No-Arbitrage:
   \begin{enumerate}
     \item $p_0 (x_0^i - w_0^i) + q z = 0 \quad \text{ and } \quad  p_s (x_s^i - w_s^i) = a_s z$
@@ -241,9 +242,28 @@ p_s (x_s^i - w_s^i) = a_s z
 \]
 which belongs to the span of $A$. \(\blacksquare\)
 
+\begin{tcolorbox}
+  When $L = 1$, we can use the above statement about ``constraint equivalence'' to show that 
+  \\
+  \underline{the constrained set of consumption $B^i \perp p$}, and thus we have constraint C.P.E. 
+  Namely, 
+  \[
+  \left(B^i := \begin{cases}
+    x^i_0 - w^i_0 + \sum_{s=1}^{S} \pi_s (x^i_s - w^i_s) = 0 \\
+    [(x^i_s - w^i_s)]_{\forall s} \in \langle A \rangle
+  \end{cases}
+  \right)
+  \perp q
+  \]
+  Notice that we use $q = \pi A$ in the derivation of the first equation of $B^i$.
+  However, in the presence of transaction costs, $q \leq \pi A \leq q + \gamma$, 
+  the tricks we used in the proof of Proposition~\ref{prop:equiv_constraints_FME} break down. 
+  Hence, $B^i(q)$ is a function of $q$ when $\gamma > 0$.
+\end{tcolorbox}
+
 
 \subsection{Arrow's Theorem}
-\begin{theorem}[(Arrow's Theorem)]
+\begin{theorem}[Arrow's Theorem]
   Under the No-Arbitrage condition, 
   any Arrow-Debreu equilibrium $(x_0^*, \{x_s^*\}, \{p_0^*, p_s^* \})$ 
   can be supported as a Financial Market Equilibrium (FME) $(x_0^*, \{x_s^*\}, z^*, \{p_0^*, q^* \})$,

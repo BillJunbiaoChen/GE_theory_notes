@@ -239,17 +239,11 @@ $(x, z, \theta, B, k, q, Q, P) \in
     \begin{align*}
         \max_{x^i, z^i, \theta^i, B^i} \quad & u^i(x^i_0) + \sum_{s \in S} \text{prob}_s u^i(x^i_s) \\
         \text{ subject to: } \quad &  x^i_0 - \omega^i_0 =  \left(-k + Q \right) \theta^i_0 - Q \theta^i - P B^i - q z^i \\
-        & x^i_s - \omega^i_s = a_s z^i + \sum_h \theta^i_h \max\left\{0, f^h(k^h;s) - B_h \right\} + \sum_h B^i_h \min\left\{B_h, f^h(k^h;s)\right\} , \quad \forall s \in S
+        & x^i_s - \omega^i_s = a_s z^i + \sum_h \theta^i_h \max\left\{0, f^h(k^h;s) - B_h \right\} + \sum_h B^i_h \min\left\{B_h, f^h(k^h;s)\right\} , \forall s \in S
     \end{align*}
     \item Each firm solves 
     \begin{align*}
         \max_{k^h, B^h} \quad & -k^h + Q(k^h, B^h) + P(k^h, B^h) B^h
-    \end{align*}
-    \item No short sales:
-    \begin{align*}
-        \text{Goods: } \quad \sum_i (x^i - w^i) & = 0 \\
-        \text{Assets: } \quad \sum_i z^i & = 0 \\
-        \text{Equity: } \quad \sum_i \theta^i & = 1 
     \end{align*}
     \item Markets clear 
     \begin{align*}
