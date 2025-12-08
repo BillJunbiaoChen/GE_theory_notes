@@ -108,4 +108,32 @@ p \tilde{x}_i + \sum_{j \neq i} p x_j < p \sum_{j}  x_j,
 which contradicts to the separating hyperplane condition. \(\blacksquare\)
 
 
-\section{Sufficient conditions for the unique of competitive equilibrium}
+
+
+\section{Sufficient conditions for the uniqueness of competitive equilibrium}
+
+
+
+\section{Sonnenschein-Debreu-Mantel Theorem (Anything-goes)}
+The following famous theorem is known as the ``anything-goes'' theorem and Indeterminacy Theorem, 
+in the sense that,
+one can take ``any'' arbitrary aggregate excess demand function ($z$), 
+and construct an economy with rational individuals that matches it.
+This proves that individual rationality imposes no restrictions on the aggregate market behavior.
+This undertermineness at the macro level outcomes leads to a famous quote by Tom Sargent:
+\begin{tcolorbox}
+    \quad ``The real problem in economics is not that our models impose too many restrictions on the data, but far too few''.
+\end{tcolorbox}
+Jesús Fernández-Villaverde says: SMD teaches us that meaningful economic predictions require disciplined structure beyond individual rationality.
+
+
+
+\begin{proposition}[Sonnenschein-Debreu-Mantel Theorem]
+    Let $\Delta_\epsilon^{L-1}$ be a trimmed simplex, with $\epsilon > 0$. 
+    Given any continuous function $z : \Delta_\epsilon^{L-1}$
+    satisfying continuity and Walras law,
+    then there is an economy with $U^i: \mathbb{R}^L_{+} \rightarrow \mathbb{R}$, 
+    $\omega \in  \mathbb{R}^{LI}_{++}$, $I \geq L$, 
+    whose aggregate excess demand function, restricted to $\Delta_\epsilon^{L-1}$, equals $z$.
+\end{proposition}
+

@@ -61,3 +61,40 @@ Let $z \in R^K$ be the asset portfolio vector with date-0 price vector $q$. The 
                       & p_s (x_s^i - w_s^i) = a_s \cdot z^i, \quad \forall s \in \mathcal{S}
 \end{align*}
 
+\section{Default}
+\subsection{Environment}
+Consider an economy with $I$ agents, 
+$S$ states, a single commodity ($L = 1$), 
+and a full set of Arrow securities: $A = I_S$ (where $I_S$ is an S-dimensional identity matrix.)
+Agents can default in each state $s \in $, 
+after the state is realized. 
+If they default they consume only a fraction $\alpha \in (0,1)$ of their endowment. 
+The remaining fraction, $1 - \alpha $, is first pooled across all defaulting agents 
+and then redistributed pro-rata to their creditors.
+
+\subsection{Equilibirum}
+\noindent \textbf{Definition:} A competitive equilibrium with default under complete financial market is defined by 
+asset prices $(q \in \mathbb{R}^S_{++})$, consumption choices $x^i \in \mathbb{R}_{++}$, 
+and default choices $d^i \in \{0, 1\}$, such that 
+\begin{enumerate}
+    \item Each consumer solves
+    \begin{align*}
+        \max_{x^i_0, x^i_s, d^i} \quad & u^i(x^i_0) + \sum_s \text{Prob}_s u^i(x^i_s) \\ 
+        \text{subject to: } \quad & x^i_0 - w^i_0 + q z^i = 0 \\ 
+        & x^i_s = \begin{cases}
+            w^i_s + \underbrace{\frac{z^i_s}{\sum_i \max\{0, z^i_s \}}}_{\text{pro-rata weight}}
+            \sum_{j \neq i}  \bigg[d_j (1 - \alpha)w^j_s + (1 - d_j) \underbrace{\max \{0 , - z^j_s\}}_{\text{identifying borrowers}} \bigg] \quad \forall s, \quad \text{ if }  z^i_s > 0 \quad  \text{($i$ is a lender)}\\
+            \\
+            d_i \alpha w^i_s + (1 - d_i) \left(z^i_s + w^i_s\right)  \quad \forall s, \quad \text{ if } z^i_s < 0 \quad \text{ ($i$ is a borrower)}
+        \end{cases}
+    \end{align*}
+    where I use the state index $s$ to denote the asset as the financial market is complete.
+    \item Goods market clears
+    \[
+    \sum_i x^i = \sum_i w^i 
+    \]
+    \item Asset market clears
+    \[
+    \sum_i z^i = 0
+    \]
+\end{enumerate}
