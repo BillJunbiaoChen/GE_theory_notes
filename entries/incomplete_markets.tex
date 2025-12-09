@@ -81,11 +81,11 @@ and default choices $d^i \in \{0, 1\}$, such that
     \begin{align*}
         \max_{x^i_0, x^i_s, d^i} \quad & u^i(x^i_0) + \sum_s \text{Prob}_s u^i(x^i_s) \\ 
         \text{subject to: } \quad & x^i_0 - w^i_0 + q z^i = 0 \\ 
-        & x^i_s = \begin{cases}
+        \forall s \in S,\quad  x^i_s & = \begin{cases}
             w^i_s + \underbrace{\frac{z^i_s}{\sum_i \max\{0, z^i_s \}}}_{\text{pro-rata weight}}
-            \sum_{j \neq i}  \bigg[d_j (1 - \alpha)w^j_s + (1 - d_j) \underbrace{\max \{0 , - z^j_s\}}_{\text{identifying borrowers}} \bigg] \quad \forall s, \quad \text{ if }  z^i_s > 0 \quad  \text{($i$ is a lender)}\\
+            \sum_{j \neq i}  \bigg[d_j (1 - \alpha)w^j_s + (1 - d_j) \underbrace{\max \{0 , - z^j_s\}}_{\text{identifying borrowers}} \bigg], \quad \text{ if }  z^i_s \geq 0\\
             \\
-            d_i \alpha w^i_s + (1 - d_i) \left(z^i_s + w^i_s\right)  \quad \forall s, \quad \text{ if } z^i_s < 0 \quad \text{ ($i$ is a borrower)}
+            d_i \alpha w^i_s + (1 - d_i) \left(z^i_s + w^i_s\right), \quad \text{ if } z^i_s < 0 \quad \text{ ($i$ is a borrower)}
         \end{cases}
     \end{align*}
     where I use the state index $s$ to denote the asset as the financial market is complete.

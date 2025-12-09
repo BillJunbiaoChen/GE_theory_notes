@@ -1,1 +1,27 @@
 \chapter{Moral Hazard}
+\section{Prescott-Townsend Competitive Equilibrium}
+\noindent \textbf{Definition.} 
+A competitive equilibrium in a Moral Hazard Economy is defined by 
+an allocation $(x, e) \in \mathbb{R}^S \times E$, 
+and prices $q \in \mathbb{R}^{SE}$ such that 
+\begin{enumerate}
+    \item Each consumer $i$ solves 
+    \begin{align*}
+        \max_{x^i, e} \quad & \sum_s \text{Prob}_s(e) u(x_s) - v(e) \\ 
+        \text{subject to: } \quad & \sum_s q_s(e) (x_s - w_s ) = 0 
+    \end{align*}
+    \item Market clears 
+    \[
+    \sum_s \text{Prob}_s(e) (x^i_s - w^i_s) = 0,
+    \]
+    where due to the Law of Large Number, $\text{Prob}_s(e)$ is the fraction of 
+    consumers choose effort $e$ when state $s$ is realized.
+    \item Self-imposing incentive constraint:
+    \[
+    e \in \text{argmax}_\epsilon \sum_s \text{Prob}_s(\epsilon) u(x_s) - v(\epsilon), \quad \text{given} x
+    \]
+    \item Rational conjecture
+    \[
+        \text{Prob}_s(e) = q_s(e)
+    \]
+\end{enumerate}
