@@ -47,68 +47,87 @@ $\Delta w^i = \frac{T_i}{p}$) --- See MWG Figure 15.b.13 for an illustration.
     For any economy characterized by $w \in \mathbb{R}^{LI}_{++}$, 
     any Pareto efficient allocation $x \in \mathbb{R}^{LI}_{+}$
     can be decentralized as a competitive equilibrium via price, $p \in \mathbb{R}^L_{++}$,
-    under redistributioned endowments 
+    under redistributed endowments 
     with $\sum_i w_i + t_i = w$ (i.e., $\sum_i t_i = 0$).
 \end{proposition}
 
 \noindent \textbf{Proof} 
-Remark: The key of the proof is a separating hyperplane argument that
-relies on the convexity, contintuity, and strict monotonicity of utility functions.
+Remark: The key of the proof is a separating hyperplane argument.
 \\
-\noindent Let $x_i = w_i + t_i$.
-First, define the strict upper contour set for agent $i$, 
+\noindent 
+Let $x \in \mathbb{R}^{LI}_{++}$ be a Pareto Efficient allocation.
+Choose $w = x$.
+Define the strict upper contour set for agent $i$, 
 \[
 B^i(x_i) := \{y_i \in \mathbb{R}^L_{+}: U(y_i) > U(x_i) \}
 \]
-Then, define the aggregate strict upper contour set as 
+Define the aggregate strict upper contour set as 
 \[
 B(x) := \bigg\{\sum_i y_i \in \mathbb{R}^L_{+}: y_i \in B^i(x_i) \forall i \bigg\}
 \]
 Since $B^i(x_i)$ is convex, the aggregate upper contour set is also convex. 
-In addition, $(\sum_i x_i) \notin B(x)$ due to the strictness of the upper contour set. 
-Then, by the Separting Hyperplane theorem, there exists a nonzero price vector $p$, such that
+In addition, by Supporting Hyperplane theorem, 
+there exists a nonzero price vector $p$, such that
 \[
 \inf_{a \in B(x)} p a \geq p \sum_i x_i
 \]
 We will use this equation to establish that 
-(1) prices are strictly positive,%
-\footnote{Intuitively, valued goods should not have non-positive prices.}
-and 
-(2) under such price, no individual will trade away from $x_i$.
+\begin{itemize}
+    \item[(1)] $p \in \mathbb{R}^{L}_{++}$, and 
+    \item[(2)] under such price, no individual will trade.
+\end{itemize}
 
 \noindent \textbf{Part 1.}
 Suppose there exists some $l$ such that $p_l < 0$, 
-by the fact that utility is \textbf{strictly} monotonic, 
-consumers can increase their consumption of $l$ arbitrarily large such that 
-$p a < p \sum_i x_i$. Then, we have a contradiction. 
+let 
+\[
+y_k^i = \begin{cases}
+    x_k^i + \delta  \quad &\text{ if } k = l \\
+    x_k^i \quad & \text{ if } k \neq l \\
+\end{cases}
+\]
+Then, $p y^i < p x^i$ and $y^i \in B^i(x^i)$. 
+Summing across agents, we have a contradtion to the supporting hyperplane condtion above.
+
 
 Now suppose there exists some $l$ such that $p_l = 0$, 
-then by the continuity of $B(x)$, there exists 
-an allocation $y$ such that $p y < p \sum_i x_i$, where $y$ is defined by
+let 
 \[
-y_k = x_k - \epsilon, \text{ and } y_l = x_l + \delta
+y_k^i = \begin{cases}
+    x_k^i + \delta  \quad &\text{ if } k = l \\
+    x_k^i - \epsilon \quad & \text{ if } k \neq l \\
+\end{cases}
 \]
-with sufficiently small $epsilon$ and sufficiently large $\delta$. 
-Again, we obtain a contradiction.
-
-\noindent \textbf{Part 2.}
-Finally, we prove that, 
-any bundle in $B^i(x_i)$ is unaffordable under $p \in \mathbb{R}^L_{++}$.
-Since $p x_i > 0$, there exists a strictly cheaper bundel such that 
-\[
-p \underline{x}_i < p x_i
-\]
-It follows that $\alpha y_i + (1 - \alpha) \underline{x}_i < p x_i$ for some $y \in B^i(x_i)$ 
-and $\alpha \in (0,1)$.
-But by the convexity of $B^i(x_i)$, we have
-$\alpha y_i + (1 - \alpha) \underline{x}_i := \tilde{x}_i \in B^i(x_i)$.
-Then, summing over individuals, we have
-\[
-p \tilde{x}_i + \sum_{j \neq i} p x_j < p \sum_{j}  x_j,
-\]
-which contradicts to the separating hyperplane condition. \(\blacksquare\)
+where $\delta$ is sufficiently large and $\epsilon$ is sufficiently small, 
+so that the loss in $k \neq l$ can be compensated. 
+Then, $p y^i < p x^i$ and $y^i \in B^i(x^i)$. 
+Summing across agents, again, we have a contradiction to the supporting hyperplane condtion above.
 
 
+\noindent \textbf{Part 2.} 
+Finally, we prove that under $p$ found by the supporting hyperplane theorem, 
+the equilibrium is autarky.
+Suppose there is a strictly profitable deviation from $x^i$ for agent $i$,
+namely, 
+\[
+\exists \tilde{x}^i, \quad \text{s.t. } p \tilde{x}^i < p x^i \quad \text{ and } \quad 
+\tilde{x}^i \in B^i(x^i)
+\]
+Denote the payoff from the deviation by $\delta := p x^i - p \tilde{x}^i > 0$.
+Pick $\tilde{x}^i + \sum_{j \neq i } y^j \in B(x)$, and apply the SHT, to obtain
+\[
+p \left(\tilde{x}^i + \sum_{j \neq i } y^j \right) \geq p \sum_i x^i 
+\] 
+It follows that 
+\[
+p \left(  \sum_{j \neq i } y^j  - x^j \right) \geq \delta > 0 
+\]
+However, consider $y^j = x^j + \epsilon$, 
+we have 
+$\lim p y^j = \lim p x^j$ as $\epsilon \rightarrow 0$,
+a contradiction. 
+Hence, it cannot exist any profitable deviation for any agent $i$. 
+\(\blacksquare\)
 
 
 \section{Sufficient conditions for the uniqueness of competitive equilibrium}

@@ -238,8 +238,8 @@ $(x, z, \theta, B, k, q, Q, P) \in
     \item Each consumer solves 
     \begin{align*}
         \max_{x^i, z^i, \theta^i, B^i} \quad & u^i(x^i_0) + \sum_{s \in S} \text{prob}_s u^i(x^i_s) \\
-        \text{ subject to: } \quad &  x^i_0 - \omega^i_0 =  \left(-k + Q \right) \theta^i_0 - Q \theta^i - P B^i - q z^i \\
-        & x^i_s - \omega^i_s = a_s z^i + \sum_h \theta^i_h \max\left\{0, f^h(k^h;s) - B_h \right\} + \sum_h B^i_h \min\left\{B_h, f^h(k^h;s)\right\} , \forall s \in S
+        \text{ subject to: } \quad &  x^i_0 - \omega^i_0 =  \left(-k + Q + P B \right) \theta^i_0 - Q \theta^i - P B \theta^i - q z^i \\
+        & x^i_s - \omega^i_s = a_s z^i +  \theta^i (f(k^h;s) + B), \forall s \in S
     \end{align*}
     \item Each firm solves 
     \begin{align*}

@@ -98,3 +98,39 @@ and default choices $d^i \in \{0, 1\}$, such that
     \sum_i z^i = 0
     \]
 \end{enumerate}
+
+
+\subsection{Efficiency}
+Consider a situation where $J= S-1$, $L=1$, and no-default constraints are imposed on assets 
+$j = 2, 3, \dots, S-1$.
+\begin{itemize}
+    \item Is competitive equilibrium constrained Pareto Efficient?
+\end{itemize}
+Note that the no-default condition is 
+\[
+w^i_s + z^i_s > \alpha w^i_s
+\]
+$\Rightarrow$
+\[
+z^i_s > - (1-\alpha) w^i_s
+\]
+Now consider the budget constraint:
+\begin{align*}
+    x^i_0 - w^i_0 + \sum_s q_s z^i_s & = 0 \\
+    x^i_s - w^i_s & = z^i_s
+\end{align*}
+Using No-Arbitrage condition, we have $q = \pi A$,
+As a result, the budget constraint becomes
+\[
+x^i_0 - w^i_0 + \sum_s \pi_s (x^i_s - w^i_s) = 0 \quad \text{ and } 
+\underbrace{
+\begin{bmatrix}
+    \vdots \\
+    x^i_s - w^i_s \\ 
+    \vdots 
+\end{bmatrix}
+\in \mathbb{R}^{S-1} \cap \text{ (No-Default constrained set) }
+}_{\text{ Doesn't depend on prices}}
+\]
+Since $L=1$, the constained set doesn't depend on prices of goods or assets,
+the competitive equilibrium is \textbf{constrained Pareto Efficient}.

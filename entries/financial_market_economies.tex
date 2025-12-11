@@ -245,7 +245,7 @@ which belongs to the span of $A$. \(\blacksquare\)
 \begin{tcolorbox}
   When $L = 1$, we can use the above statement about ``constraint equivalence'' to show that 
   \\
-  \underline{the constrained set of consumption $B^i \perp p$}, and thus we have constraint C.P.E. 
+  \underline{the constrained set of consumption $B^i \perp p$}, and thus we have constrained P.E. 
   Namely, 
   \[
   \left(B^i := \begin{cases}
@@ -276,7 +276,7 @@ Since goods market clearing implies financial market clearing, the market cleari
 the FME is the same as the one in Arrow-Debreu equilibrium.
 Now, we only need to discuss the equivalence of the budget constraints between these two economies.
 
-Since the market in complete, the spaning condition in the FME is not binding.
+Since the market in complete, the span condition in the FME is not binding.
 Then the budget constraints in the FME reduce to
 \[
 p_0 (x_0^i - w_0^i) + \sum_s \pi_s p_s (x_s^i - w_s^i) = 0
@@ -305,6 +305,28 @@ $\sum \alpha_k z_k = 0 \text{ with } z_k \in Z(\pi, p), \alpha_k \geq 0, \sum \a
 Since agent $i$ is indifferent among $\{z_{ik}\}$ across $k$,
 we can assign $\alpha_k$ fraction of type $i$ agents to choose $z_{ik}$.
 As a result, the aggregate excess demand is zero. \(\blacksquare\)
+
+
+\section{Cass Trick}
+\textbf{Question:}  What is the Cass trick and how is it useful in the existence proof for 
+(single commodity, two-periods) financial market economies with incomplete markets?
+
+\textbf{Answer:} 
+The definition of the Cass trick. 
+Consider an economy where the span condition is imposed on all consumers except $i=1$.
+Then, the Cass trick aruges that the Financial market equilibrium (FME) is the same as the 
+``modified'' FME.
+% The intuition behind this equivalence is that 
+% if one individual can access to the complete market and anyone else can trade with that 
+% individual, then the whole economy is complete.
+We use the conclusion of the Cass trick to establish the boundary condition of the FME.
+Specifically, for $i=1$, her excess demand goes to infinity as price goes to zero.
+Using the budget constraints for other individuals, we can see that the 
+the excess demand is bounded from below. 
+Hence, using the same proof as in the existence proof of the AD-equilibrium, 
+we can establish the existence. 
+
+
 
 
 \section{Aggregation}
