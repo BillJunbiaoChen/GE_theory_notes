@@ -1,4 +1,4 @@
-\chapter{Moral Hazard}
+\chapter{Asymmetric Information}
 \section{Prescott-Townsend Competitive Equilibrium}
 \noindent \textbf{Definition.} 
 A competitive equilibrium in a Moral Hazard Economy is defined by 
@@ -25,6 +25,36 @@ and prices $q \in \mathbb{R}^{SE}$ such that
         \text{Prob}_s(e) = q_s(e)
     \]
 \end{enumerate}
+
+
+
+\section{Radner Rational Expectation Equilibrium}
+For an economy with $t = 0, 1$, $S$ states, $J$ assets, $L=1$ commodity, 
+$I > 1$ agents with strictly positive endowments and 
+strictly monotonic, vNM, and strictly quasiconcave preferences, and
+$\Sigma^I$ signals.
+A Radner Rational Expectation Equilibrium consists of 
+$(x, z, q_\sigma, \phi) \in 
+\mathbb{R}_{+}^{(S+1)I} \times \mathbb{R}_{+}^{JI} \times 
+\mathbb{R}_{++}^{J |\Sigma|^I} \times \Phi$ 
+such that 
+\begin{enumerate}
+    \item Given $w_i, A, q_\sigma, \phi, \sigma_i$, agent $i$ solves the following problem 
+        \begin{align*}
+            \max_{x_i, q_i} \ & U_i(x^i_0) + \sum_s \text{prob}_s^{\sigma_i, \phi^{-1}(q_\sigma)} U_i(x^i_s) \\ 
+            \text{ subject to: }  & x^i_0 - w^i_0 + q_\sigma z_i = 0 \\ 
+            &  x^i_s - w^i_s = a_s z_i, \quad \forall s 
+        \end{align*}
+    where $\text{prob}_s^{\sigma_i, \phi^{-1}(q_\sigma)}$ is the posterior beliefs about the state $s$ given 
+    $i$'s signal $\sigma_i$ and her information about others' signals given the inverse price-map and the price $\phi^{-1}(q_\sigma)$.
+    \item Markets clear 
+        \begin{itemize}
+            \item Assets (signal-dependent): $\sum_i z_i(q_\sigma, \phi) = 0, \forall \sigma \in \Sigma^I$
+            \item Goods at $t = 0$: $\sum_i x^i_0 - w^i_0 = 0$
+            \item Goods at $t = 1$: $\sum_i x^i_s - w^i_s = 0, \forall s$
+        \end{itemize}
+    \item Assets prices are consistent: $q_\sigma = \phi(\sigma)$.
+\end{enumerate} 
 
 
 
