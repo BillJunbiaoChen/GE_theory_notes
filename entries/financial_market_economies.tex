@@ -329,6 +329,39 @@ we can establish the existence.
 
 
 
+\section{Cass Trick in a 3-period FME}
+\textbf{Want: } The existence proof of a competitive equilibrium in a 3-period Financial Market Equilibrium.
+\\
+\noindent \textbf{Sketch: }  First, we can extend the Lemma of constraint equilvance to a 3-period setup,
+which includes $1 + S + S^2$ budget constraints (i.e., normalizations).
+The $S^2$ additional equations come from the \textbf{spanning condition} 
+at period $t = 1$.
+This extended theorem reduces the price space to 
+$(\pi, p) \in \mathbb{R}_{++}^{S+S^2} \times \mathbb{R}_{++}^{L(1 + S+S^2)}$,
+where $\pi$ is the state price and $p$ is the spot price. 
+
+
+In addition, the market clearing conditions are 
+\[
+\sum_i x^i(\pi, p) - w^i = 0
+\]
+The total number of market clearing conditions are $L(1 + S+S^2) -1$
+because there are $L$ goods, 1 spot market today, $S$ tomorrow and $S^2$ the day after tomorrow. 
+$-1$ because of the Walras Law.
+
+Then we can count the total number of unknowns and equations:
+\[
+\underbrace{S+S^2 + L(1 + S+S^2)}_{\text{raw unknowns}} - \underbrace{1 + S + S^2}_{\text{normalization}} = \underbrace{L (1 + S + S^2) - 1}_{\text{\# of mkt clearing cond.}}
+\]
+
+
+The role played by the Cass trick is to eliminate the spanning conditions in $t =1, 2$ for agent $i=1$.
+So that the boundary condition holds and the equilibrium exists under this modified equilibrium.
+The last piece of the proof is just to show that the equilvalence between the modified and the original equilibriua.
+
+
+
+
 \section{Aggregation}
 As many economic analysis are conducted under the representative agent framework,
 such as the canonical consumption-based CAPM model, 

@@ -1,9 +1,46 @@
 \chapter{Abstract Exchange Economies}
 \section{Pareto Efficient Allocations}
-\begin{proposition}[Negishi Theorem]
-    
+\begin{proposition}[Negishi Theorem] 
+\\
+\noindent (If) Let $\mathbb{U} = \{U \in \mathbb{R}^I | U \leq U(x) \text{ for some } x \in \mathbb{R}^{LI} \text{ such that } \sum_i x_i \leq \tilde{w} \}$
+be a convex set. 
+Let $x$ be a Pareto efficient allocation. 
+Then there exists $\alpha \in \mathbb{R}_{+}^I$ and $\alpha \neq 0$ such that $x$ is the solution to the following problem:%
+\footnote{
+    In other words, there exists a Pareto weights that can justify the allocation.
+}
+\begin{align*}
+    \max_x \ & \sum_i \alpha_i U_i(x_i) \\ 
+    \text{ subject to } & \ \sum_i x_i \leq \tilde{w}
+\end{align*}
+
+\noindent (Only if) Given $\alpha \in \mathbb{R}_{+}^I$ and $\alpha \neq 0$, if $x$ is the solution to the Negishi Probelm, 
+then $x$ is Pareto Optimal.
 \end{proposition}
 
+\paragraph{Proof}
+(If) 
+Because $\mathbb{U}$ is convex and nonempty, and $U(x) \in \text{brdy}(\mathbb{U})$,
+by supporting hyperplane theorem, there exists $\alpha$ such that 
+$\alpha U(x) \geq \alpha U'$ for all $U' \in \mathbb{U}$.
+Hence, $x = \text{argmax}_{x'} \sum_i \alpha_i U_i(x_i')$. 
+In addition, $\mathbb{U}$ is unbounded from below, we have $\alpha \in \mathbb{R}^I_+$. 
+
+
+(Only if) Suppose $\alpha \in \mathbb R^I_{++}$ and $x$ solves the Negishi problem. 
+Suppose, toward a contradiction, that $x$ is not Pareto optimal. Then there exists a feasible allocation $x'$ such that
+\[
+U_i(x_i') \geq U_i(x_i)\quad \forall i,
+\]
+with strict inequality for some $j$. Since $\alpha_j>0$, we have
+\[
+\sum_i \alpha_i U_i(x_i')
+>
+\sum_i \alpha_i U_i(x_i),
+\]
+contradicting the optimality of $x$ in the Negishi problem. Therefore, $x$ is Pareto optimal.
+
+\(\blacksquare\)
 
 
 \section{Welfare Analysis}
@@ -20,12 +57,12 @@ and
 $y^j \succ_P x^j$ for some $j$.
 Then by the Walras Law and the Law of Revealed Prferences, we have 
 \[
-p_0 (y^i_0 - w^j_0) + \sum_s p_s (y^i_s - w^j_s) \geq p_0 (x^i_0 - w^i_0) + \sum_s p_s (x^i_s - w^i_s) = 0, \quad \text{ and }
+p_0 (y^i_0 - w^i_0) + \sum_s p_s (y^i_s - w^i_s) \geq p_0 (x^i_0 - w^i_0) + \sum_s p_s (x^i_s - w^i_s) = 0, \quad \text{ and }
 \]
 \[
 p_0 (y^j_0 - w^j_0) + \sum_s p_s (y^j_s - w^j_s) > p_0 (x^j_0 - w^j_0) + \sum_s p_s (x^j_s - w^j_s) = 0
 \]
-Summing over $i$, we have 
+Summing over $i$ (i.e., summing the two equations above), we have 
 \[
 p_0 \sum_i (y^i_0 - w^i_0) + \sum_s p_s \sum_i (y^i_s - w^i_s) > 0
 \]
