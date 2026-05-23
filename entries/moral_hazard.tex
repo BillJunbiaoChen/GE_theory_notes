@@ -54,7 +54,50 @@ such that
             \item Goods at $t = 1$: $\sum_i x^i_s - w^i_s = 0, \forall s$
         \end{itemize}
     \item Assets prices are consistent: $q_\sigma = \phi(\sigma)$.
-\end{enumerate} 
+\end{enumerate}
+
+\subsection{Fully Revealing Equilibria}
+
+\begin{definition}
+A REE price map $\phi: \Sigma^I \to \mathbb{R}^J_+$ is \emph{fully revealing} if
+\[
+\phi(\sigma) \neq \phi(\sigma'), \quad \text{for any } \sigma, \sigma' \in \Sigma^I \text{ with } \sigma \neq \sigma'.
+\]
+Equivalently, $\phi$ is invertible: by observing $q_\sigma$, every agent can back out the joint signal profile $\sigma \in \Sigma^I$, so the posterior conditional on $(\sigma^i, \phi^{-1}(q_\sigma))$ collapses to the full-information posterior conditional on $\sigma$,
+\[
+\text{prob}^{\sigma^i, \phi^{-1}(q_\sigma)}_s = \text{prob}^{\sigma}_s.
+\]
+\end{definition}
+
+\begin{theorem}[Radner 1979]
+For a generic subset of economies parametrized by endowments $\omega \in \mathbb{R}^{(S+1)I}_{++}$, there exists a REE price map $\phi: \Sigma^I \to \mathbb{R}^J_+$ that is fully revealing.
+\end{theorem}
+
+\paragraph{Proof sketch (counting equations and unknowns).}
+Because a fully revealing $\phi$ is invertible, every agent's posterior is the full-information posterior $\text{prob}^\sigma_s$. Consider the auxiliary economy in which agent $i$'s problem is
+\begin{align*}
+    \max_{(x^i, z^i) \in \mathbb{R}^{S+1}_+ \times \mathbb{R}^J} \quad & u^i(x_0^i) + \sum_{s \in S} \text{prob}^\sigma_s \, u^i(x_s^i) \\
+    \text{subject to: } \quad & x_0^i + q_\sigma z^i \leq \omega_0^i, \\
+                              & x_s^i \leq a_s z^i + \omega_s^i, \quad \forall s.
+\end{align*}
+Let $z^i(q_\sigma, \phi)$ denote the optimal portfolio and
+$Z(q_\sigma, \phi) = \sum_{i \in I} z^i(q_\sigma, \phi)$
+the aggregate excess demand for the $J$ assets.
+
+We argue by contrapositive: suppose $\phi$ is \emph{not} fully revealing, i.e., there exist $\sigma \neq \sigma' \in \Sigma^I$ such that $\phi(\sigma) = \phi(\sigma')$. Then the following three conditions must hold simultaneously:
+\begin{align*}
+    Z(\phi(\sigma),  \phi)   &= 0, \\
+    Z(\phi(\sigma'), \phi) &= 0, \\
+    \phi(\sigma) &= \phi(\sigma').
+\end{align*}
+\emph{Count:} treating $\phi(\sigma), \phi(\sigma') \in \mathbb{R}^J$ as the unknowns, this is a system of $3J$ equations in $2J$ unknowns. By the Transversality Theorem applied to the endowment parameter $\omega \in \mathbb{R}^{(S+1)I}_{++}$, an over-determined system of this form generically (off a closed, measure-zero subset of $\omega$) has no solution. Hence generically no two distinct signal profiles deliver the same equilibrium price, and the REE is fully revealing. \hfill $\square$
+
+\paragraph{Remarks.}
+\begin{itemize}
+    \item At a fully revealing REE, all agents share the same posterior $\text{prob}^\sigma_s$, so the equilibrium allocation is exactly the one in a full-information financial market economy: \emph{agents do not trade on account of information}, only on account of risk-sharing.
+    \item The genericity logic is the same as the one used in incomplete markets (see Geanakoplos-Polemarchakis): a transversality count $3J$ vs.\ $2J$ pins down the result, even though we have not made the perturbation argument explicit.
+    \item The result \emph{fails} when the signal space is too rich relative to the asset span. If $\sigma \in \mathbb{R}^{\Sigma I}$ is continuous and $\Sigma I > J$, the price map $\phi: \mathbb{R}^{\Sigma I} \to \mathbb{R}^J$ generically cannot be invertible by a dimensionality argument: $\phi$ maps a $\Sigma I$-dimensional set into a $J$-dimensional one (Theorem 6.2 / Allen 1981).
+\end{itemize}
 
 
 

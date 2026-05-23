@@ -1,0 +1,74 @@
+\chapter{Main Concepts, Theorems, and Propositions}
+
+\section{Concepts}
+
+\subsection{Boundary condition}
+The usual boundary condition used in the existence proof is:
+\[
+p^n \rightarrow p \text{ with some } p_l = 0 \Rightarrow \max \{z_1(p^n, w), z_2(p^n, w), 
+dots, z_L(p^n, w) \} \rightarrow \infty.
+\]
+
+\subsection{Aggregate Excess Demand Function Properties}
+Let $z(p, w): \mathbb{R}_{++}^{L} \times \mathbb{R}_{++}^{LI} \rightarrow \mathbb{R}_{+}^{L}$ be the excess demand function. 
+It has the following properties ("SWBBH")
+\begin{enumerate}
+    \item smoothness: $z(p, w)$ is $C^1$
+    \item Walras Law: $p z(p, w) = 0$.
+    \item bounded from below: $z(p, w) \geq -s $
+    \item boundary condition: $p^n \rightarrow p$ with some $p_l = 0$ then,$\max \{z_k(p, w) \} \rightarrow \infty$. 
+    \item homogeneity of degree $0$: $z(\lambda p, \lambda w) = \lambda^0 z(p, w) = z(p, w)$.
+\end{enumerate}
+
+\section{Propositions}
+
+\subsection{Sunspots}
+
+Intuitively, a sunspot equilibrium means that we can have different equilibrium outcomes even when economic fundamentals are the same.
+
+\begin{box}
+\[
+\exists \text{ non-trivial sunspot equilibrium }
+\Rightarrow
+\text{ equilibrium indeterminacy or multiplicity.}
+\]
+\end{box}
+
+\paragraph{Cass and Shell.}
+When markets are complete, sunspot equilibria do not exist. That is, if
+\[
+\omega_{s,e}=\omega_{s,e'}=\omega_s,
+\]
+then
+\[
+x_{s,e}=x_{s,e'}.
+\]
+But when markets are incomplete, sunspot equilibria may exist.
+
+\paragraph{Example.}
+Since there is only one bond paying one unit of the numeraire in every state,
+the asset payoff vector is \(A=(1,\dots,1)'\). Hence, the span condition implies
+\[
+p_s(x_s^i-\omega_s^i)=z^i
+\qquad \text{for every state }s.
+\]
+After splitting state \(1\) into two extrinsic states \(\alpha,\beta\), we have
+\[
+p_\alpha(x_\alpha^i-\omega_1^i)
+=
+p_\beta(x_\beta^i-\omega_1^i)
+=
+z^i.
+\]
+Thus, the same bond position must finance net trades in both extrinsic states.
+But this condition only restricts the value of net trades, not the commodity bundle
+itself. Therefore it does not force \(x_\alpha^i=x_\beta^i\).
+
+If equilibrium spot prices differ across the two extrinsic states, \(p_\alpha\neq p_\beta\),
+then the same numeraire payoff can support different consumption bundles. Hence,
+with incomplete markets, it is possible that
+\[
+x_\alpha\neq x_\beta
+\]
+even though \(\omega_\alpha=\omega_\beta=\omega_1\).
+This is the sunspot logic.
