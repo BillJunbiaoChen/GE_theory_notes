@@ -1,0 +1,33 @@
+\chapter{Sequential Trading Economies}
+
+\section{Incomplete Financial Market with $L = 1$}
+\subsection{CPE when $L = 1$}.
+\paragraph{(Diamond)} 
+A financial market equilibirum $(x, \pi) \in \mathbb{R}^{(S+1)I}_{+} \times \mathbb{R}_{++}^S$
+of an economy with $\text{rank}(A) =  J < S$
+is constrained Pareto Efficient when $L= 1$.
+
+\paragraph{Proof.} We prove by contradiction, as the proof of the First Welfare Theorem. 
+When $L=1$, the spanning condition becomes 
+\begin{align*}
+    \begin{bmatrix}
+        \vdots \\ 
+        y^i_s - w^i_s \\
+        \vdots
+    \end{bmatrix} \in \text{span}(A)
+\end{align*}
+
+Let $x$ be a financial market equilibrium. 
+Suppose there exists a $y$ that is preferred by all $i$ (with strict preference for at least one $j$.)
+Then, we have 
+\begin{align*}
+    y^i_0 - w^i_0 + \sum_s \pi_s (y^i_s - w^i_s) & \geq x^i_0 - w^i_0 + \sum_s \pi_s (x^i_s - w^i_s) \\ 
+    y^j_0 - w^j_0 + \sum_s \pi_s (y^j_s - w^j_s) & > x^j_0 - w^j_0 + \sum_s \pi_s (x^j_s - w^j_s)
+\end{align*}
+Summing across all $i$ and invoking the Walras' Law, we have
+\begin{align*}
+    \sum_i y^i_0 - w^i_0 + \sum_s \pi_s  \sum_i (y^i_s - w^i_s) > 0 
+\end{align*}
+Since $\pi_s  > 0$, we have $\sum_i (y^i_s - w^i_s) > 0 $, contradicting the feasiblity condition. 
+\\
+\textit{Q.E.D.}

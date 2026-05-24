@@ -1,0 +1,25 @@
+\chapter{Abstract Production Economies}
+\subsection{Competitive equilibrium}
+\paragraph{Definition.}
+For an economy with endowment $(\omega, \delta) \in \mathbb{R}_{++}^{LI}, \Delta^{I^H}$, 
+a competitive equilibrium is $(x, y, p) \in \mathbb{R}_{+}^{LI} \times Y \times \mathbb{R}_{++}^{L}$,
+such that 
+\begin{enumerate}
+    \item Given $p \in \mathbb{R}^L_{++}$, each agent $i$ solves 
+    \begin{align*}
+        \max_{x^i} \ & U^i(x^i) \\ 
+        \text{ subjec to } & \ \color{blue}{p} x^i \leq \color{blue}{p}  w^i + \sum_h \delta^{ih} \pi^h(\color{blue}{p} )
+    \end{align*}
+    \item Given $p$, each firm $h$ solves 
+    \begin{align*}
+        \max_{y^h} \ & p y^h
+    \end{align*}
+    \item Goods market clears: 
+    \[
+        \sum_i x^i  \leq \sum_i w^i + \sum_h y^h
+    \]
+    \item consistency. Namely, profit is given by 
+    \[
+    \pi^h(\color{blue}{p}) = p y^h, \forall h \in H
+    \]
+\end{enumerate}

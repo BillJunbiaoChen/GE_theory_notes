@@ -2,7 +2,7 @@
 \section*{Timeline}
 Firms buy at time 0 on the spot market and sell at time 1 on the state-contingent markets.
 
-\section{Takeaways}
+\section{Main concepts in this section}
 \begin{itemize}
     \item Arrow-Debreu equilibrium 
     \item Financial Market equilibrium 
@@ -24,16 +24,17 @@ Firms buy at time 0 on the spot market and sell at time 1 on the state-contingen
 \noindent \textbf{Definition.} \\
 An Arrow-Debreu Equilibrium is $(x, y, \phi) 
 \in \mathbb{R}^{L(S+1)I}_{+} \times \Upsilon \times \mathbb{R}^{L(S+1)}_{++}$
-(N.B.: $y = [y_h], \text{ with } y_h = (-k^h, f^h(k^h))$.) such that 
+(N.B.: $y = [y^h], \text{ with } y^hh = (-k^h, f^h(k^h))$.) such that 
 \begin{enumerate}
     \item Given $\phi$, each individual solves the utility maximization pb:
     \begin{align*}
         \max_{x^i_0, x^i_s} \quad & u^i(x^i_0) + \sum_s \text{Prob}_s u^i(x^i_s) \\
-        \text{subject to: } \quad & \phi_0 (x^i_0 - w^i_0) + \sum_s \phi_s (x^i_s - w^i_s)  + \sum_h \delta^{ih} k_h = 0 
+        \text{subject to: } \quad & \phi_0 (x^i_0 - w^i_0) + \sum_s \phi_s (x^i_s - w^i_s)  - \sum_h \delta^{ih} \pi^h = 0 
     \end{align*}
+    where $\pi^h$ is the expected profit of firm $h$.
     \item Each firm solves the following pb:
     \begin{align*}
-        \max_{k^h} \quad & - \phi_0 k^h + \textcolor{blue}{\sum_s \phi_s} f^h(k_h;s)
+        \max_{k^h \in K \subseteq \mathbb{R}^L_{+}} \quad & - \phi_0 k^h + \textcolor{blue}{\sum_s \phi_s} f^h(k_h;s)
     \end{align*}
     \item Market clears%
     \footnote{Since $y^h = [-k^h, f^h(k^h)]$, this condition is the same as 
@@ -258,3 +259,30 @@ $(x, z, \theta, B, k, q, Q, P) \in
     \end{align*}
     \item Consistency: $Q^h = Q^h(k^h, B^h)$ and  $P^h = P^h(k^h, B^h)$.
 \end{enumerate}
+
+\subsection{Modigliani-Miller Theorem.}
+\paragraph{Theorem.} If the financial market is complete, the decision of $B$ is indeterminate. 
+\paragraph{Proof.}
+Under rational conjecture, we have 
+\begin{align*}
+    Q(k, B) & = \max_i \ \mathbb{E}[ m_i \max \{0, f(k, s) - B \} ] \\ 
+    P(k, B)  & = \max_i \ \mathbb{E}[ m_i \min \{1, \frac{f(k, s)}{B} \} ]
+\end{align*}
+Because market is complete, $m^i = m$, hence we have 
+\begin{align*}
+Q(k, B) + P(k, B) B & = \mathbb{E}[m \max \{0, f(k, s) - B \} + m\min \{B, f(k, s) \} ] \\ 
+    & = \mathbb{E}[ m \max \{B, f(k, s) \} + m \min \{B, f(k, s) \} - m B] \\ 
+    & = \mathbb{E}[m f(k, s)]
+\end{align*}
+which is independent of $B$.
+
+
+\subsection{Modigliani-Miller Theorem when $J < S$ but $\exists$ a common holder}
+Now we consider the situation where the financial market is incomplete,
+namely, $\text{rank}(A) = J < S$. 
+However, if there is a common holder, namely, $\text{argmax}_i Q(m_i) = \text{argmax}_i P(m_i)$,
+the Modigliani-Miller Theorem also holds!
+\begin{align*}
+Q(k, B) + P(k, B) B = \mathbb{E}[m_{i^*}  f(k, s)]
+\end{align*}
+where $i^*$ is the highest bidder who holds both equity and bond.

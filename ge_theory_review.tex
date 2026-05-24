@@ -20,7 +20,7 @@ Junbiao Chen\thanks{E-mail: jc14076@nyu.edu.}
 \usepackage[font=normalsize,labelfont=bf]{caption}
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
-\hypersetup{colorlinks=true,urlcolor=blue,citecolor=blue}
+\hypersetup{colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue}
 \usepackage{stmaryrd}  %Package with \boxast command
 \usepackage{enumerate}% http://ctan.org/pkg/enumerate %Supports lowercase Roman-letter enumeration
 \usepackage{verbatim} %Package with \begin{comment} environment
@@ -37,8 +37,9 @@ Junbiao Chen\thanks{E-mail: jc14076@nyu.edu.}
 \usepackage{subfig}
 \usepackage{csquotes}
 \usepackage{tcolorbox}
+\definecolor{lightblue}{rgb}{0.68, 0.85, 0.9} %
 \tcbset{
-    colback=red!5, % Background color of the box
+    colback=lightblue, % Background color of the box
     colframe=black,  % Border color of the box
     boxrule=0.5pt,   % Thickness of the border
     arc=2mm,         % Rounded corners
@@ -84,8 +85,6 @@ Junbiao Chen\thanks{E-mail: jc14076@nyu.edu.}
   tabsize=4
 }
 
-\definecolor{lightblue}{rgb}{0.68, 0.85, 0.9} %
-
 %CUSTOM DEFINITIONS
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -113,7 +112,7 @@ Junbiao Chen\thanks{E-mail: jc14076@nyu.edu.}
   innerbottommargin=10pt,
   linecolor=black, 
   linewidth=1pt,
-  backgroundcolor=white, 
+  backgroundcolor=lightblue,
   roundcorner=5pt
 ]{propositionbox}
 
