@@ -166,8 +166,56 @@ Hence, it cannot exist any profitable deviation for any agent $i$.
 \(\blacksquare\)
 
 
-\section{Sufficient conditions for the uniqueness of competitive equilibrium}
+\section{Existence Proof by Debreu's Map}
+\noindent \textbf{Statement:} A competitive equilibrium exists for any economy $\omega \in \mathbb{R}_{++}^{LI}$ \\
 
+\noindent \textbf{Proof} \\
+Let $p \in \Delta^L$, $z: \text{Int}(\Delta^L) \rightarrow \mathbb{R}^L$,
+and $f: \Delta^L \rightarrow 2^{\Delta^L}$ defined as follows. (This is Debreu's Map):
+\begin{align*}
+    f(p) = \begin{cases}
+        \text{argmax}_q q z(p) \quad & \text{ if } p \in \text{int}(\Delta^L) \\ 
+         \{q \in \Delta^L: p q = 0 \}\quad & \text{ if } p \in \text{bdry}(\Delta^L)
+    \end{cases}
+\end{align*}
+This map implies that if there exists a fixed point, $p^*$
+then we have $z(p^*) = 0$ and $p^* \in \text{int}{\Delta^L}$.
+It remains to proof the existence of the fixed point.
+We can finish the proof by the Kakutani Fixed Point Theorem, 
+because $\Delta^L$ is non-empty, convex, and compact.
+In addition, $f(p)$ is non-empty as it maps $p$ to either the interior or the boundary. 
+$f(p)$ is also convex valued. 
+Finally, by examing the following three cases, we can show that $f(p)$ is upper hemicontinous.
+\begin{enumerate}
+    \item $p^n \in \text{Int}(\Delta^L) \rightarrow p \in \text{Int}(\Delta^L)$
+    \item $p^n \in \text{bdry}(\Delta^L) \rightarrow p \in \text{bdry}(\Delta^L)$
+    \item $p^n \in \text{Int}(\Delta^L) \rightarrow p \in \text{bdry}(\Delta^L)$
+\end{enumerate}
+
+By the Kakutani FPT, there exists $p^* \in f(p^*)$.
+\textit{Q.E.D.}
+
+
+
+
+
+
+\section{Sufficient conditions for the uniqueness of competitive equilibrium}
+Existence of a competitive equilibrium holds under general conditions, but uniqueness requires strong restrictions. Proposition 6 of the notes provides three sufficient conditions:
+
+\begin{enumerate}
+    \item \textbf{Pareto-efficient endowments.} If $\omega$ is Pareto efficient, the unique equilibrium is autarchic ($x^i = \omega^i$ for all $i$), since there are no gains from trade and strict convexity of preferences pins down the allocation on the budget line.
+    
+    \item \textbf{Identical, homothetic preferences.} If all agents share the same homothetic $U^i$, then $x^i(p, y^i) = y^i \, x(p, 1)$ aggregates linearly, so the economy admits a representative agent owning $\sum_i \omega^i$, and equilibrium prices depend only on aggregate endowments.
+    
+    \item \textbf{Gross substitutes.} If aggregate excess demand satisfies
+    \begin{align*}
+        p'_l > p_l \text{ and } p'_j = p_j \ \forall j \neq l \implies z_j(p') > z_j(p),
+    \end{align*}
+    then raising prices coordinate-by-coordinate from one candidate equilibrium $p$ to another $p'$ contradicts $z(p) = z(p') = 0$.
+\end{enumerate}
+
+\textbf{Caveat.} These conditions are sufficient but not necessary; by the Sonnenschein--Mantel--Debreu theorem, aggregate excess demand can take essentially any shape, so multiple equilibria are generic absent such restrictions.
 
 
 \section{Sonnenschein-Debreu-Mantel Theorem (Anything-goes)}
