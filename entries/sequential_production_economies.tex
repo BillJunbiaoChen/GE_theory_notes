@@ -279,10 +279,38 @@ which is independent of $B$.
 
 \subsection{Modigliani-Miller Theorem when $J < S$ but $\exists$ a common holder}
 Now we consider the situation where the financial market is incomplete,
-namely, $\text{rank}(A) = J < S$. 
+namely, $\text{rank}(A) = J < S$.
 However, if there is a common holder, namely, $\text{argmax}_i Q(m_i) = \text{argmax}_i P(m_i)$,
 the Modigliani-Miller Theorem also holds!
 \begin{align*}
 Q(k, B) + P(k, B) B = \mathbb{E}[m_{i^*}  f(k, s)]
 \end{align*}
 where $i^*$ is the highest bidder who holds both equity and bond.
+
+
+\section{Problems}
+\subsection{Problem 5.1}
+\paragraph{Problem.} Consider a definition of Competitive equilibrium which differs in the specification of a consistency condition on price conjectures --- which we now denote with $D^h(k^h)$. Consider in particular the price conjectures proposed by Dreze (1974). Let $\theta_h^i$ be the position of agent $i$ on the equity of firm $h$. Then, for any $h \in H$, let the Dreze conjectures be defined as:
+\[
+D^h(k^h) = \mathbb{E}\left[ \sum_{i \in I} \theta_h^i m^i p f^h(k^h) \right].
+\]
+Note that these conjectures only depend on the marginal valuation of agents $i \in I$ such that $\theta_h^i > 0$. Show that an equilibrium with Rational Conjectures is also an equilibrium with Dreze conjectures but the converse does not hold.
+
+\paragraph{Solution.}
+Suppose $\theta_h^i > 0$. If $\mathbb{E}[m^i p \square f^h(k_*^h)] < Q^h(k_*^h)$, then agent $i$ would like to decrease $\theta_h^i$. Thus, in any equilibrium, $\theta_h^i > 0$ iff $\mathbb{E}[m^i p \square f^h(k_*^h)] = Q^h(k_*^h)$. Therefore, $Q^h(k_*^h) = D^h(k_*^h)$.
+
+\textbf{Start from a RC equilibrium.} There are no profitable deviations under $Q^h$. Substitute $Q^h$ with $D^h$. Since $D^h(k_*^h) = Q^h(k_*^h)$, consistency holds. Since $D^h \leq Q^h$, there are no profitable deviations under $D^h$: Dreze eq.
+
+\textbf{Start from a Dreze equilibrium.} There are no profitable deviations under $D^h$. Substitute $D^h$ with $Q^h$. Since $Q^h(k_*^h) = D^h(k_*^h)$, consistency holds. Since $Q^h \geq D^h$, there might be profitable deviations under $Q^h$: no RC eq.
+
+\subsection{Problem 5.2}
+\paragraph{Problem.} Identify precisely how the proof of Lemma 5.1 (which shows that enlarging the asset space with an off-equilibrium firm leaves the equilibrium unchanged under rational conjectures) breaks down if you use e.g. Dreze conjectures.
+
+\paragraph{Solution.}
+With Dreze conjectures, it no longer holds that $\mathbb{E}[m^i p \square f^h(k')] \leq D^h(k')$ for all $i$, so some agent may be willing to buy shares of the off-equilibrium firm.
+
+\subsection{Problem 5.3}
+\paragraph{Problem.} Consider an economy with $L = 1$ and --- for simplicity but without loss of generality --- $H = 1$. Identify precisely how the proof of Lemma 5.1 breaks down if we allow for positive finite short sales $\bar{\theta} > 0$.
+
+\paragraph{Solution.}
+With short sales and rational conjectures, every agent with $\mathbb{E}[m^i p \square f(k')] < Q(k')$ finds it preferable to sell shares of the off-equilibrium firm. Therefore, $\gamma_e = 0$ is incompatible with eq of the augmented economy.

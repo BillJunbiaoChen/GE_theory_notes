@@ -31,3 +31,69 @@ Summing across all $i$ and invoking the Walras' Law, we have
 Since $\pi_s  > 0$, we have $\sum_i (y^i_s - w^i_s) > 0 $, contradicting the feasiblity condition. 
 \\
 \textit{Q.E.D.}
+
+
+\section{The Representative Agent Theorem}
+
+\subsection*{Statement}
+
+\begin{tcolorbox}
+\textbf{Theorem (Representative Agent).} Suppose all $I$ agents have identical VNM preferences with the same homothetic Bernoulli utility:
+\[
+U^i(x^i) = u(x_0^i) + \sum_{s=1}^S \mathrm{prob}_s\, u(x_s^i), \quad u(\cdot) \text{ homothetic}, \ \forall i.
+\]
+If markets are complete ($\mathrm{rank}(A) = S$), then there exists a representative agent with
+\[
+U^R(x) = U(x), \qquad \omega^R = \sum_{i=1}^I \omega^i,
+\]
+such that the FME of the single-agent economy has the same prices $(p,q)$ as the original $I$-agent FME. The representative agent's equilibrium allocation is autarchic: $x^R = \omega^R$, $z^R = 0$.
+\end{tcolorbox}
+
+\subsection*{Three ingredients (memorize these)}
+
+\begin{enumerate}
+    \item \textbf{Identical preferences} $\Rightarrow$ same MRS structure across agents.
+    \item \textbf{Homotheticity} $\Rightarrow$ individual demand is linear in wealth: $x^i(p, y^i) = y^i \, x(p, 1)$, so demand aggregates linearly.
+    \item \textbf{Complete markets} ($\mathrm{rank}(A) = S$) $\Rightarrow$ equilibrium is Pareto efficient and equalizes MRSs across agents, so only aggregate wealth matters.
+\end{enumerate}
+
+\subsection*{Proof sketch}
+
+\textbf{Step 1: Linear aggregation from homotheticity.} By homotheticity, $x^i(p, y^i) = y^i x(p,1)$. Identical preferences give $x^i(p,1) = x(p,1)$. Summing across agents:
+\[
+\sum_i x^i(p, y^i) = \left(\sum_i y^i\right) x(p,1) = x\!\left(p, \sum_i y^i\right).
+\]
+The last equality reapplies homotheticity in reverse — aggregate demand equals the demand of a single agent endowed with $\sum_i y^i$.
+
+\medskip
+\textbf{Step 2: Walras + spot market clearing.} The budget constraint gives $p_s x_s^i = y_s^i$. Summing and using market clearing $\sum_i x_s^i = \sum_i \omega_s^i$:
+\[
+\sum_i y_s^i = p_s \sum_i \omega_s^i.
+\]
+
+\medskip
+\textbf{Step 3: Combine.} Substituting into the aggregated demand:
+\[
+x\!\left(p_s, p_s \sum_i \omega_s^i\right) = \sum_i \omega_s^i.
+\]
+This is the equilibrium condition for a \emph{single} agent who owns $\sum_i \omega^i$ and faces prices $p$. Hence the same $p$ supports both equilibria.
+
+\medskip
+\textbf{Step 4: Where completeness enters.} Complete markets ensure the original $I$-agent equilibrium is Pareto efficient, so all agents share a common pricing kernel $m$. This is what makes the aggregation valid \emph{across states} (not just within a state) and pins down $q$ from the representative agent's MRS: $q = \mathbb{E}[m^R A]$.
+
+\subsection*{Why it matters}
+
+The theorem reduces equilibrium price computation to a \emph{single-agent} problem: just solve
+\[
+q_j = \sum_{s} \mathrm{prob}_s \frac{u'\!\left(\sum_i \omega_s^i\right)}{u'\!\left(\sum_i \omega_0^i\right)} a_{sj},
+\]
+plugging in aggregate endowments. No need to solve for the individual allocation $(x^i, z^i)_{i=1}^I$. This is the foundation of essentially all macro/finance asset-pricing models (CCAPM, Lucas tree, etc.).
+
+\subsection*{Memory hooks}
+
+\begin{itemize}
+    \item \textbf{Slogan:} ``Identical + homothetic + complete $\Rightarrow$ aggregate.''
+    \item \textbf{Each assumption kills one obstruction:} identical preferences kill heterogeneous demand functions; homotheticity kills wealth-distribution effects; completeness kills MRS dispersion across agents.
+    \item \textbf{Compare to uniqueness Proposition 6(ii):} the static version (identical + homothetic) gives uniqueness in a pure exchange economy. The representative agent theorem is the dynamic/state-contingent analogue, with completeness added to handle the extra dimension.
+    \item \textbf{Equilibrium is autarchic:} $x^R = \omega^R$, $z^R = 0$ — the representative agent trades with herself, so net trades vanish.
+\end{itemize}

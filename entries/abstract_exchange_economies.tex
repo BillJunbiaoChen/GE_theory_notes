@@ -80,12 +80,40 @@ any Pareto efficient allocation can be decentralized as a competitive equilibriu
 transfer (equivalently, redistribution of initial endowment, where the transferred endowment 
 $\Delta w^i = \frac{T_i}{p}$) --- See MWG Figure 15.b.13 for an illustration.
 
-\begin{proposition}[Second Welfare Theorem]
-    For any economy characterized by $\tilde{w} \in \mathbb{R}^{L}_{++}$, 
-    any Pareto efficient allocation $x \in \mathbb{R}^{LI}_{+}$
-    can be decentralized as a competitive equilibrium via price, $p \in \mathbb{R}^L_{++}$,
-    of the economy $w \in \mathbb{R}_{++}^{LI}$, such that $\sum_i w_i = \tilde{w}$.
+\begin{proposition}[Second Welfare Theorem (The version with transfer)]
+    In an exchange economy with strictly monotonic, continuous, strictly quasiconcave $U_i$,
+    and endowment $w \in \mathbb{R}_{++}^{LI}$:
+    for any Pareto efficient allocation $x$, there exist balanced transfers $t$ (such that $\sum_i t_i = 0$), 
+    and prices $p \in \mathbb{R}^L_{++}$ such that $x$ is \textbf{a} competitive equilibrium of the economy 
+    $w + t$ at prices $p$.
 \end{proposition}
+
+
+\noindent \textbf{A Shorter Proof} 
+\begin{itemize}
+    \item \textbf{Step 1: Define the transfers.} Let $t^i = x^i - w^i$. By feasibility, we have $\sum_i t^i = 0$. Now it remains to show that 
+        there exists a price system where $x$ is a competitive equilibrium.
+    \item \textbf{Step 2: Define the strict upper Contour set.} 
+        For $x^i$, define $B^i = \{U^i(\hat{x}^i) > U^i(x^i) \}$. 
+        Define $B = \sum_i B^i$.
+        Because utility is \textcolor{blue}{strictly quasiconcave}, $B^i$ is convex and thus $B$ is convex.
+        By Supporting hyperplane theorem, there exists $p$ such that 
+        \[
+        p \hat{x}^i \geq p x^i, \quad \forall \hat{x}^i \in B(x)
+        \]
+    \item \textbf{Step 3: Prove that $p \in \mathbb_{++}^L$.} 
+        Suppose there exists $p_l < 0$, by \textcolor{blue}{strict monotonicity}, we can increase the consumption of good $l$ such that 
+        the increased buddble $y \in B(x)$ but $p y < p x^i$. Contradiction. Hence, $p \in \mathbb_{++}^L$.
+    \item \textbf{Step 4: Prove $x^i$ is the solution for all $i$.}
+        Because utility is \textcolor{blue}{convex}, and $p \in \mathbb_{++}^L$, we have 
+        \[
+        p \hat{x}^i > p x^i, \quad \forall \hat{x}^i \in B(x)
+        \]
+        Hence, $x^i$ is the maximizer for all $i$.  
+\end{itemize}
+\textit{Q.E.D.}
+
+
 
 \noindent \textbf{Proof} 
 Remark: The key of the proof is a separating hyperplane argument.
@@ -171,7 +199,7 @@ Hence, it cannot exist any profitable deviation for any agent $i$.
 
 \noindent \textbf{Proof} \\
 Let $p \in \Delta^L$, $z: \text{Int}(\Delta^L) \rightarrow \mathbb{R}^L$,
-and $f: \Delta^L \rightarrow 2^{\Delta^L}$ defined as follows. (This is Debreu's Map):
+and $f: \Delta^L  \rightrightarrows \Delta^L $ defined as follows. (This is Debreu's Map):
 \begin{align*}
     f(p) = \begin{cases}
         \text{argmax}_q q z(p) \quad & \text{ if } p \in \text{int}(\Delta^L) \\ 
@@ -191,6 +219,12 @@ Finally, by examing the following three cases, we can show that $f(p)$ is upper 
     \item $p^n \in \text{bdry}(\Delta^L) \rightarrow p \in \text{bdry}(\Delta^L)$
     \item $p^n \in \text{Int}(\Delta^L) \rightarrow p \in \text{bdry}(\Delta^L)$
 \end{enumerate}
+Importantly, in case 3 above, we need to use the boundary condition of aggregate excess demand.
+Namely, 
+\[
+\text{ If } p^n \rightarrow p \text{ with some } p_l = 0, \text{ then }
+\max \{z_1(p^n), \dots, z_L(p^n) \} \rightarrow \infty 
+\]
 
 By the Kakutani FPT, there exists $p^* \in f(p^*)$.
 \textit{Q.E.D.}

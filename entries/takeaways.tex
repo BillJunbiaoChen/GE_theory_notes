@@ -1,4 +1,64 @@
-\chapter{Main Concepts, Theorems, and Propositions}
+\chapter{Main Results}
+
+
+\section{Summary of equilibrium notions}
+
+\subsection*{Table 1: Walrasian and Financial Market equilibria}
+
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{5pt}
+\small
+\noindent\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{2.8cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{3.4cm}|}
+\hline
+\textbf{Equilibrium} & \textbf{Variables} & \textbf{Object space} & \textbf{Efficiency} \\
+\hline
+Abstract Exchange CE & $(x, p)$ & $\mathbb{R}_+^{LI} \times \mathbb{R}_{++}^L$ & 1st \& 2nd WT \\
+\hline
+Exchange w/ Production & $(x, y, p)$ & $\mathbb{R}_+^{LI} \times Y \times \mathbb{R}_{++}^L$ & 1st \& 2nd WT \\
+\hline
+Arrow--Debreu (exchange) & $(x, \phi)$ & $\mathbb{R}_+^{L(S+1)I} \times \mathbb{R}_{++}^{L(S+1)}$ & 1st \& 2nd WT \\
+\hline
+Arrow--Debreu w/ Production & $(x, y, \phi)$ & $\mathbb{R}_+^{L(S+1)I} \times Y \times \mathbb{R}_{++}^{L(S+1)}$ & 1st \& 2nd WT \\
+\hline
+Financial Market Eq.\ (FME) & $(x, z, p, q)$ & $\mathbb{R}_+^{L(S+1)I} \times \mathbb{R}^{JI} \times \mathbb{R}_{++}^{L(S+1)} \times \mathbb{R}^J$ & Constr.\ PO if $L=1$; fails if $L>1$ (G--P) \\
+\hline
+FME with No-Arbitrage & $(x, \pi, p)$ & $\mathbb{R}_+^{L(S+1)I} \times \mathbb{R}_{++}^S \times \mathbb{R}_{++}^{L(S+1)}$ & = FME (reformulation) \\
+\hline
+FME + Production + Rational Conj. & $(x, k, z, \theta, p, q, Q)$ & FME dim.\ $\times\ K^H \times \mathbb{R}_+^{HI} \times (\mathbb{R}_+^K)^H$ & Generically not constr.\ PO \\
+\hline
+Representative Agent FME & $(x^R, z^R, p, q)$ & FME w/ $I=1$; $x^R = \sum_i \omega^i$, $z^R = 0$ & Inherits FME; autarchic \\
+\hline
+\end{tabularx}
+
+
+\subsection*{Table 2: Dynamic, sunspot, and asymmetric-information equilibria}
+
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{5pt}
+\small
+\noindent\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{2.8cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{3.4cm}|}
+\hline
+\textbf{Equilibrium} & \textbf{Variables} & \textbf{Object space} & \textbf{Efficiency} \\
+\hline
+
+Sunspot Equilibrium & $(x, z, p, q)$ on $S \times \Sigma$ & FME dim., indexed by $\sigma \in \Sigma$ & Generically not PO \\
+\hline
+
+Sequential FME & $\{(x^i, z^i)_i, q\}$ per node $s^t$ & Indexed by event tree $\mathcal{N}$ & Static FME node-by-node \\
+\hline
+
+Sequential Arrow--Debreu & $(x^*, p^*)$ per node $s^t$ & $\mathbb{R}_+^{LI \cdot |\mathcal{N}|} \times \mathbb{R}_{++}^{L \cdot |\mathcal{N}|}$ & 1st \& 2nd WT \\
+\hline
+
+Rational Exp.\ Eq.\ (REE) & $\phi: \Sigma^I \to \mathbb{R}_+^J$ + alloc. & Price-map space $\{\phi: \Sigma^I \to \mathbb{R}_+^J\}$ & Info aggregation; not PO \\
+\hline
+
+P--T (Moral Hazard) & $(x, e, q(\cdot))$ & $\mathbb{R}_+^S \times E \times \{q: E \to \mathbb{R}_+^S\}$ + IC & Incentive-constr.\ PO \\
+\hline
+
+P--T (Adverse Selection) & $(x^e)_{e \in E}, q(\cdot)$ & $\mathbb{R}_+^{SE} \times \{q: E \to \mathbb{R}_+^S\}$ + truth-telling & Generically \emph{not} IC-PO \\
+\hline
+\end{tabularx}
 
 \section{Concepts}
 

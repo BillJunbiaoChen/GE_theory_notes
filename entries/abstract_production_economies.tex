@@ -18,8 +18,37 @@ such that
     \[
         \sum_i x^i  \leq \sum_i w^i + \sum_h y^h
     \]
-    \item consistency. Namely, profit is given by 
+    \item consistency. Namely, profit is given by
     \[
     \pi^h(\color{blue}{p}) = p y^h, \forall h \in H
     \]
 \end{enumerate}
+
+\section{Problems}
+\subsection{Problem 2.3}
+\paragraph{Problem.} Prove existence of a Romer competitive equilibrium; that is, show that the standard proof applies once it is handled with care.
+
+\paragraph{Solution.}
+For every fixed $K = (K^h)_{h \in H}$, we can follow the standard proof to show that a competitive equilibrium exists (however it may not satisfy consistency, so it may not be a Romer CE). Denote by $(x(p, w), y(p, w, K), k(p, w, K))$ the equilibrium induced by $(p, w, K)$. Finding a Romer CE means finding a fixed point of $k_{p,w}(K)$. One can check that $k_{p,w}$ is well-behaved so that Kakutani's FP Theorem applies.
+
+\subsection{Problem 2.4}
+\paragraph{Problem.} Drawing by analogy from Problem 1.2 on public goods show that, for a Romer competitive equilibrium, the proof of the First Welfare theorem breaks down. Furthermore, in this economy, compare the first order conditions of the PE pb and those of the Firm pb and argue that --- in general --- they cannot be all satisfied at a production plan $(y, k) \in \mathbb{R}_+^H \times \mathbb{R}_+^{(L-1)H}$. Can you construct a constrained notion of Pareto efficiency for which the First Welfare Theorem holds in this economy? [Hint: Write the corresponding Negishi problem]
+
+\paragraph{Solution.}
+The proof breaks down because we cannot conclude from $(x, y, k) \succ^P (x_*, y_*, k_*)$ that $\sum_{h \in H} p y^h > \sum_{h \in H} p y_*^h$. The FOCs (wrt $k$) of the Firm's problem are (for all $h \in H$ and $\ell \neq 1$):
+\[
+p A(K^h) \frac{\partial f^h}{\partial k_\ell^h} = 0.
+\]
+The FOCs (wrt $k$) of the Negishi problem are (for all $h \in H$ and $\ell \neq 1$):
+\[
+p A(k^h) \frac{\partial f^h}{\partial k_\ell^h} + p \frac{\partial A}{k_\ell^h} f^h(k^h) = 0.
+\]
+This happens because the planner internalizes the consistency requirement. A constrained notion of efficiency would require the planner to maximize welfare taking $K^h$ as fixed:
+\[
+\max_{x, y, k} \sum_{i \in I} \alpha^i U(x^i) \qquad \text{s.t.} \qquad
+\begin{cases}
+\sum_{i \in I} x_\ell^i + \sum_{h \in H} k_\ell^h \leq \sum_{i \in I} w_\ell^i \\
+\sum_{i \in I} x_1^i \leq \sum_{i \in I} w_1^i + \sum_{h \in H} y^h \\
+y^h = A(K^h) f^h(k^h)
+\end{cases}
+\]

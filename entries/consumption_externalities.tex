@@ -63,10 +63,64 @@ It follows that
     \tau^i_l = \frac{\lambda_l}{p_l \alpha_i \frac{\partial U^i}{\partial x^i_1}} - 1 
         - \sum_{j \neq i}  \frac{\alpha^j}{p_l \alpha^i}  \frac{\frac{\partial U^j}{\partial x^i_l}}{\frac{\partial U^i}{\partial x^i_1}}
 \end{align*}
-Now assuming $\alpha^i = \frac{1}{\mu^i} = \frac{1}{\frac{\partial U^i}{\partial x^i_1}}$, and $p_l = \lambda_l$, 
-the we have 
+Now assuming $\alpha^i = \frac{1}{\mu^i} = \frac{1}{\frac{\partial U^i}{\partial x^i_1}}$, and $p_l = \lambda_l$,
+the we have
 \begin{tcolorbox}
     \[
     \tau^i_l = -  \frac{1}{p_l } \sum_{j \neq i} \frac{\frac{\partial U^j}{\partial x^i_l}}{\frac{\partial U^j}{\partial x^j_1}}.
     \]
 \end{tcolorbox}
+
+\section{Problems}
+\subsection{Problem 1.1}
+\paragraph{Problem.} Show that, in an economy with consumption externalities, the proof of the First Welfare theorem breaks down. Furthermore, in this economy, compare the first order conditions of the Negishi and those of the Consumer pb and argue that --- in general --- they cannot be all satisfied at an allocation $x \in \mathbb{R}_+^{LI}$. Furthermore,
+\begin{enumerate}
+    \item Consider taxing consumption $x^i$ at the rate $\tau^i$, for each $i \in I$. Let $\tau = [\tau_l^i]_{i \in I}$. The budget constraint of agent $i \in I$ can be written as
+    \[
+        p \square (1 + \tau^i) x^i \leq p\omega^i + T^i,
+    \]
+    where $T^i$ is the lump-sum re-batement of tax proceeds to agent $i$. Show that the tax rate
+    \[
+        \tau_l^i = -\frac{1}{p_l} \sum_{j \neq i} \frac{\partial U^j(x^j, x^{-j}) / \partial x_l^i}{\partial U^j(x^j, x^{-j}) / \partial x_1^j}, \quad \forall i \in I, \, l = 2, \ldots, L \quad \text{(Pigouvian tax)}
+    \]
+    induces a competitive equilibrium allocation which is Pareto Efficient.
+    \item Consider requiring that any consumption allocation $x^i$ be associated to the acquisition of consumption rights $r^i$ --- at price $p^r$ --- to be actually consumed. The market clearing conditions $x^i = r^i$ should then also be satisfied at a competitive equilibrium. The budget constraint of agent $i \in I$ can be written as
+    \[
+        p x^i + p^r r^i \leq p \omega^i.
+    \]
+    Show that at prices
+    \[
+        p_l^{r,i} = \sum_{j \neq i} \frac{\partial U^j(x^j, x^{-j}) / \partial x_l^i}{\partial U^j(x^j, x^{-j}) / \partial x_1^j}, \quad \forall i \in I, \, l = 2, \ldots, L \quad \text{(Lindahl prices)}
+    \]
+    the competitive equilibrium allocation is Pareto Efficient.
+\end{enumerate}
+
+\paragraph{Solution.}
+\textbf{(a)} The proof breaks down because we cannot conclude that $y \succ^P x$ implies $\sum_{i \in I} p y^i > \sum_{i \in I} p x^i$. The FOCs of the Consumer problem are (for all $i \in I$ and $\ell \in L$):
+\[
+\frac{\partial U^i}{\partial x_\ell^i} = \lambda^i p_\ell.
+\]
+The FOCs of the Negishi problem are (for all $i \in I$ and $\ell \in L$):
+\[
+\alpha^i \frac{\partial U^i}{\partial x_1^i} = \mu_1, \qquad \sum_{j \in I} \alpha^j \frac{\partial U^j}{\partial x_\ell^i} = \mu_\ell.
+\]
+In general, they do not coincide.
+
+\textbf{(b)} The FOCs of the Consumer problem become (for all $i \in I$ and $\ell \in L$):
+\begin{align*}
+\frac{\partial U^i}{\partial x_1^i} & = \lambda^i, \\
+\frac{\partial U^i}{\partial x_\ell^i} & = \lambda^i p_\ell (1 + \tau_\ell^i)
+= \lambda^i p_\ell - \lambda^i \sum_{j \neq i} \frac{\partial U^j / \partial x_\ell^i}{\partial U^j / \partial x_1^j}
+= \lambda^i \left( p_\ell - \sum_{j \neq i} \frac{\partial U^j / \partial x_\ell^i}{\lambda^j} \right).
+\end{align*}
+Therefore:
+\[
+\frac{\partial U^i}{\partial x_1^i} = \lambda^i, \qquad \sum_{j \in I} \frac{1}{\lambda^j} \frac{\partial U^j}{\partial x_\ell^i} = p_\ell.
+\]
+These are the same FOCs as the Negishi problem's, up to re-labeling ($\alpha^j = \lambda^j$, $\mu_\ell = p_\ell$).
+
+\textbf{(c)} Clearly, it is sub-optimal to waste money on $r^i > x^i$. Therefore, the market clearing condition $x^i = r^i$ is redundant as it is implied by monotonicity and individual feasibility. Let $\tau^i$ denote the Pigouvian tax. The budget constraint of agent $i \in I$ can be re-written as:
+\[
+p \omega^i \geq p x^i + p^r r^i = p x^i + p^{r,i} x^i = p \square \left( 1 + \frac{1}{p} \square p^{r,i} \right) x^i = p \square (1 + \tau^i) x^i.
+\]
+Therefore, Lindahl prices have the same effect as the Pigouvian tax.

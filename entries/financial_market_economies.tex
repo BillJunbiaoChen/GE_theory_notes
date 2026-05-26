@@ -110,12 +110,49 @@ Defining $\pi_s = m_s \text{Prob}_s$, we have the \textbf{Fundamental Equation o
 
 \clearpage
 \begin{tcolorbox}
-\textbf{Defintion (No-Arbitrage Theorem)}
+\textbf{Definition (No-Arbitrage Theorem).}
 \[
-\text{span}(W) \cap \mathbb{R}^{S+1}_{+} = \{ \bm{0}\} \Leftrightarrow
-\exists \hat{\pi} \in \mathbb{R}^{S+1}_{++} \text{ such that } \hat{\pi}  \tau = 0, \forall \tau \in \text{span}(W)
+\operatorname{span}(W) \cap \mathbb{R}^{S+1}_{+} = \{ \bm{0}\}
+\quad \Longleftrightarrow \quad
+\exists \hat{\pi} \in \mathbb{R}^{S+1}_{++}
+\text{ such that }
+\hat{\pi}\cdot \tau = 0,
+\quad \forall \tau \in \operatorname{span}(W),
 \]
+where $W = \begin{bmatrix} -q \\ A \end{bmatrix}.$
+
+\medskip
+
+\textit{Remarks}:
+\begin{itemize}
+  \item Alternatively, we can state the theorem as follows:
+  \textcolor{blue}{
+  If an asset price vector $q$ admits no arbitrage, then there exists a state price vector
+  $\pi \in \mathbb{R}^{S}_{++}$ such that
+  \[
+  q = \pi A.
+  \]
+  }
+
+  \item \textbf{Equivalence with $q = \pi A$.}
+  Writing $\hat{\pi} = (\hat{\pi}_0,\pi) \in \mathbb{R}_{++} \times \mathbb{R}_{++}^S$,
+  the orthogonality condition $\hat{\pi}\cdot Wz = 0$ for all $z \in \mathbb{R}^J$ gives
+  \[
+  (-\hat{\pi}_0 q + \pi A)z = 0
+  \quad \forall z \in \mathbb{R}^J
+  \quad \Longleftrightarrow \quad
+  \hat{\pi}_0 q = \pi A.
+  \]
+  Normalizing $\hat{\pi}_0 = 1$ recovers the familiar form
+  \[
+  q = \pi A,
+  \]
+  with $\pi \in \mathbb{R}_{++}^S$.
+
+  \item Although the alternative version is more readable, the $W$-version helps the proof. See below.
+\end{itemize}
 \end{tcolorbox}
+
 \noindent \textbf{Proof of the No-Arbitrage Theorem}
 \begin{itemize}
   \item[($\Rightarrow$)]
@@ -379,9 +416,9 @@ it is important to understand under what conditions we can aggregate agents' beh
 \noindent \textbf{Proof of proposition~\ref{prop:budget_sep_thm} (Sketch):}
 Define demand function $x_s^i(p_s, y_s^i)$.
 By Walras' law, we have $p_s x_s^i(p_s, y_s^i) = y_s^i$, and $\sum_i y_s^i = p_s \sum_i x^i_s = p_s \sum_i w^i_s$.
-Then, we have 
+Then, we have
 \begin{align*}
-  & \sum_i p_s x_s^i(p_s, y_s^i) = \sum_i y_s^i \\ 
+  & \sum_i p_s x_s^i(p_s, y_s^i) = \sum_i y_s^i \\
   \Rightarrow \quad & \sum_i p_s x_s(p_s, y_s^i)  = p_s \sum_i w^i_s \\
   \Rightarrow \quad & p_s \sum_i  y_s^i x_s(p_s, 1) = p_s \sum_i w^i_s \\
   \Rightarrow \quad & \sum_i y_s^i x_s(p_s, 1) =  \sum_i w^i_s \\
@@ -389,4 +426,95 @@ Then, we have
   \Rightarrow \quad  &  x_s(p_s, p_s \sum_i w^i_s) =  \sum_i w^i_s
 \end{align*}
 Therefore, $p_s$ is uniquely determined by the equation above. \(\blacksquare\)
+
+
+\section{Problems}
+\subsection{Problem 4.1}
+\paragraph{Problem.} Consider an alternative definition of Constrained Pareto optimality, due to Grossman (1970), in which the spanning constraint is evaluated at prices $p_s \in \mathbb{R}^L$ (for any $s \in S$) representing competitive equilibrium prices of the Financial market economy $\omega \in \mathbb{R}_{++}^{L(S+1)I}$ with Incomplete markets ($\text{rank}(A) = J < S$). Show that the allocation $x \in \mathbb{R}_+^{L(S+1)I}$ pertaining to a Financial market equilibrium $(x, \pi, p)$ is in fact Constrained Pareto efficient according to this definition.
+
+\paragraph{Solution.}
+Let $(x, \pi, p)$ be a FM equilibrium. Suppose that there exists some feasible allocation $y$ that Pareto dominates $x$ and satisfies the market constraint. Since $y$ satisfies the market constraint but is not an equilibrium, it must be ruled out by the WLRP. Therefore,
+\[
+\sum_{i \in I} \left[ p_0 (y_0^i - x_0^i) + \sum_{s \in S} p_s (y_s^i - x^i) \right] > 0.
+\]
+But this contradicts $\sum_{i \in I} x^i = \sum_{i \in I} \omega^i = \sum_{i \in I} y^i$.
+
+\subsection{Problem 4.2}
+\paragraph{Problem.} Consider a Complete market economy --- with $\text{rank}(A) = S$ --- whose feasible set of asset portfolios is restricted by borrowing limits:
+\[
+z^i \geq -b^i, \quad \text{for any } i = 1, \ldots, I.
+\]
+Construct the implied constrained set of consumption allocations in this economy and show that it has the form $B^i(p_1, \ldots, p_S)$.
+
+\paragraph{Solution.}
+We can write the set of feasible bundles as:
+\[
+B^i(p) = \{ x^i : \exists z^i \geq -b^i, \ p_0 (x_0^i - \omega_0^i) + q z^i \leq 0 \ \wedge \ \forall s \in S, \ p_s (x_s^i - \omega_s^i) \leq a_s z^i \}.
+\]
+
+\subsection{Problem 4.3}
+\paragraph{Problem.} Consider a Financial Market economy with one single commodity ($L = 1$) which lasts $t = 3$ periods. Agents trade the same $J$ assets with payoff $A$ at time $t = 0$ and time $t = 1$. Assume markets are incomplete, that is, $\text{rank}(A) < S$. Define a Financial market equilibrium for this economy as well as Constrained Pareto optimality. Construct the implied constrained set of consumption allocations in this economy and show how it depends on prices.
+
+\paragraph{Solution.}
+A FM equilibrium is a tuple $(x, z, q) \in \mathbb{R}^{1 + S + S^2} \times \mathbb{R}^{J(1+S)} \times \mathbb{R}^{J(1+S)}$ that clears markets and:
+\[
+\max_{x^i, z^i} \ u^i(x_0^i) + \sum_{s \in S} \mathbb{P}(s) \left[ u^i(x_{1s}^i) + \sum_{s' \in S} \mathbb{P}(s' \mid s) u^i(x_{2ss'}^i) \right]
+\]
+\[
+\text{s.t.} \quad
+\begin{cases}
+x_0^i - \omega_0^i + q_0 z_0^i \leq 0 \\
+x_{1s}^i - \omega_{1s}^i + q_{1s} z_{1s}^i \leq a_s z_0^i \\
+x_{2ss'}^i - \omega_{2ss'}^i \leq a_s z_{1s}^i
+\end{cases}
+\]
+Re-write the set of constraints using the no-arbitrage condition:
+\[
+\begin{cases}
+x_0 - \omega_0 + \sum_{s \in S} \pi_s^0 (x_{1s} - \omega_{1s}) + \sum_{s \in S} \sum_{s' \in S} \pi_{s'}^s (x_{2ss'} - \omega_{2ss'}) = 0 \\
+(x_{2ss'} - \omega_{2ss'})_{s' \in S} \in \langle A \rangle \\
+\exists z_1: \ (x_s - \omega_s + \pi^s A z_{1s})_{s \in S} \in \langle A \rangle
+\end{cases}
+\]
+So market incompleteness is characterized by the restriction:
+\[
+B(\pi) = \{ x^i : \exists z_1, \ (x_s - \omega_s + \pi^s A z_{1s})_{s \in S} \in \langle A \rangle \ni (x_{2ss'} - \omega_{2ss'})_{s' \in S} \}.
+\]
+The Planner's problem is:
+\[
+\max_{(x, \theta) \in \mathbb{R}^{I(1+S+S^2)} \times \mathbb{R}^{IJ(1+S)}}
+\sum_{i \in I} \alpha^i \left[ u^i(x_0^i) + \sum_{s \in S} \mathbb{P}(s) \left[ u^i(x_{1s}^i) + \sum_{s' \in S} \mathbb{P}(s' \mid s) u^i(x_{2ss'}^i) \right] \right]
+\]
+\[
+\text{s.t.} \quad
+\begin{cases}
+\sum_{i \in I} x^i = \sum_{i \in I} \omega^i \\
+x^i \in x^i(q, \omega, \theta) \\
+q \in q(\omega, \theta)
+\end{cases}
+\]
+
+\subsection{Problem 4.4}
+\paragraph{Problem.} Consider a Complete market economy with $\text{rank}(A) = S$. Assume that, for an exogenous vector $\gamma \in \mathbb{R}_{++}^J$: the buying price of asset $j$ is $q_j + \gamma_j$ while the selling price of asset $j$ is $q_j$, for any $j = 1, \ldots, J$. Let $z_{j+}^i, z_{j-}^i$ denote, respectively, the buying and selling position of agent $i$ on asset $j$. Suppose that trade occurs in equilibrium, that is $z_{j+}^i > 0$ for some $i \in I$ and some $j \in J$. Construct the implied constrained set of consumption allocations in this economy and show how it depends on prices.
+
+\textbf{Bonus questions:} Can at a Financial market equilibrium be the case that both $z_{j+}^i, z_{j-}^i > 0$? Are Financial market equilibria Pareto efficient?
+
+\paragraph{Solution.}
+The set of feasible bundles can be written as:
+\[
+B^i(p) = \left\{ x^i : \exists z_+^i, z_-^i, \
+\begin{cases}
+p_0 (x_0^i - \omega_0^i) + (q + \gamma) z_+^i - q z_-^i \leq 0 \\
+p_s (x_s^i - \omega_s^i) \leq a_s (z_+^i - z_-^i)
+\end{cases} \right\}.
+\]
+In equilibrium it is impossible that $z_+^i, z_-^i > 0$, as it would be strictly preferable to either sell or buy $|z_+^i - z_-^i|$, depending on the sign of the difference. Equilibria are not Pareto efficient because the market constraint depends on prices.
+
+\subsection{Problem 4.5}
+\paragraph{Problem.} Consider an economy with $I$ agents, $S$ states, $L > 1$ commodities, and a full set of Arrow securities: $A = I_S$. Agents can default in each state $s \in S$, after the state is realized. If they default they consume only a fraction $\alpha \in (0,1)$ of their endowment. The remaining fraction, $1 - \alpha$, is first pooled across all defaulting agents and then re-distributed pro-rata to their creditors.
+
+Write down a constraint on agents' portfolios of Arrow securities which guarantees that they will not default. Construct the implied constrained set of consumption allocations guaranteeing no default and show how it depends on prices. Will agents ever default at a Constrained Pareto efficient allocation? Is there anything fundamental about Arrow securities --- or about complete markets --- which drives your answers?
+
+\paragraph{Solution.}
+The constraint $z_s^i \geq -(1 - \alpha) \omega_s^i$ ensures that agents always find it preferable to repay their debts. The scenario is now equivalent to Problem 4.2. Equilibria are not Pareto efficient because the market constraint depends on prices.
 

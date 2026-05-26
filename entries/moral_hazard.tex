@@ -103,3 +103,55 @@ We argue by contrapositive: suppose $\phi$ is \emph{not} fully revealing, i.e., 
 
 \section{Moral Hazard in Production}
 \subsection{Static}
+
+
+\section{Problems}
+\subsection{Problem 6.1}
+\paragraph{Problem.} Characterize Incentive constrained optima and competitive equilibria (with the consistency condition on price maps) of the moral hazard economy specialized so that
+\[
+S = \{1, 2\}; \quad e \in \{h, \ell\}; \quad v(h) > v(\ell); \quad \pi_1(h) > \pi_1(\ell); \quad \omega_1 > \omega_2.
+\]
+Set-up and characterize equilibria of this economy under the constraint that prices are linear (independent of $x$), $q_s(e(x)) = q_s$. Are equilibrium allocations in this case Incentive constraint efficient?
+
+\paragraph{Solution.}
+An IC optimum $(x^*, e^*)$ solves:
+\[
+\max_{x, e} \ \pi_1(e) u(x_1) + (1 - \pi_1(e)) u(x_2) - v(e)
+\]
+\[
+\text{s.t.} \quad
+\begin{cases}
+\pi_1(e) (x_1 - \omega_1) + (1 - \pi_1(e)) (x_2 - \omega_2) = 0 \\
+e \in \arg\max_\varepsilon \pi_1(\varepsilon) u(x_1) + (1 - \pi_1(\varepsilon)) u(x_2) - v(\varepsilon)
+\end{cases}
+\]
+A competitive equilibrium $(x^*, e^*, q)$ clears markets and solves:
+\[
+\max_{x, e} \ \pi_1(e) u(x_1) + (1 - \pi_1(e)) u(x_2) - v(e)
+\]
+\[
+\text{s.t.} \quad
+\begin{cases}
+q_1 (x_1 - \omega_1) + q_2 (x_2 - \omega_2) = 0 \\
+e \in \arg\max_\varepsilon \pi_1(\varepsilon) u(x_1) + (1 - \pi_1(\varepsilon)) u(x_2) - v(\varepsilon)
+\end{cases}
+\]
+Moreover, $q_s = \pi_s(e^*)$. Equilibria are in general not efficient. High effort might be supported in the IC optimum if $\pi_1(h)$ is sufficiently larger than $\pi_1(\ell)$ and $\omega_1$ is sufficiently larger than $\omega_2$. However, high effort cannot be supported in equilibrium because prices do not change with the choice of $x$.
+
+\subsection{Problem 6.2}
+\paragraph{Problem.} Write the moral hazard economy with idiosyncratic uncertainty, as in this section, but allowing for consumption at time $t = 0$. Be careful in writing the consistency condition on prices and compare it with Rational conjectures as we formulated them in the production economies with Incomplete markets.
+
+\paragraph{Solution.}
+A competitive equilibrium $(x^*, z^*, e^*, q)$ clears markets and solves:
+\[
+\max_{x, e, z} \ u(x_0) + \sum_{s \in S} \pi_s(e) u(x_s)
+\]
+\[
+\text{s.t.} \quad
+\begin{cases}
+x_0 - \omega_0 + q_0(x) z \leq 0 \\
+q_s(x) (x_s - \omega_s) \leq a_s z \\
+e \in e(x) = \arg\max_\varepsilon u(x_0) + \sum_{s \in S} \pi_s(\varepsilon) u(x_s)
+\end{cases}
+\]
+Moreover, $q_s(x) = \pi_s(e(x))$ and $q_0(x) = \sum_{s \in S} \pi_s(e(x)) m_s(x) a_s$ for all $x$.

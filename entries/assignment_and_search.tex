@@ -56,3 +56,70 @@ In the $k^{th}$ step, we have
 \sum_{i \neq k \neq {\sigma_*}^{-1}(k)} U^{i \sigma_*(i)} + U^{kk} + U^{{\sigma_*}^{-1}(k) \sigma_*(k)} > \sum_i U^{i \sigma_*(i)}. 
 \]
 Iterate this procedure for all $i$, we reach a contradiction. \(\blacksquare\)
+
+
+\section{Problems}
+\subsection{Problem 3.1}
+\paragraph{Problem.} Prove Proposition 3.2 (equivalence between stability of $(\pi, u, v)$ and the property that $\pi$ solves the primal assignment problem while $(u, v)$ solves its dual).
+
+\paragraph{Solution.}
+\textbf{``If'' side.} Suppose that $\pi$ is a solution to the primal problem and $(u, v)$ is a solution to the dual problem. By Lemma 2:
+\[
+U^{ih} = u^i + v^h.
+\]
+Since $\pi$ solves the primal problem:
+\[
+\sum_{i \in I} \sum_{h \in H} \pi^{ih} U^{ih}
+= \sum_{i \in I} \sum_{h \in H} \pi^{ih} u^i + \sum_{h \in H} \sum_{i \in I} \pi^{ih} v^h
+= \sum_{i \in I} w^i u^i + \sum_{h \in H} f^h v^h.
+\]
+Since $(u, v)$ solves the dual problem, for all $i \in I$ and $h \in H$ we have $u^i + v^h \geq U^{ih}$. Therefore, $(\pi, u, v)$ is a stable tuple.
+
+\textbf{``Only if'' side.} Suppose that $(\pi_*, u_*, v_*)$ is a stable tuple. By absence of blocking pairs, for all $\pi \in \Pi$ we have:
+\[
+\sum_{i \in I} \sum_{h \in H} \pi^{ih} U^{ih} - \sum_{i \in I} \sum_{h \in H} \pi^{ih} u_*^i - \sum_{h \in H} \sum_{i \in I} \pi^{ih} v_*^h \leq 0.
+\]
+Therefore:
+\[
+\max_{\pi \in \Pi} \sum_{i \in I} \sum_{h \in H} \pi^{ih} U^{ih}
+\leq \sum_{i \in I} w^i u_*^i + \sum_{h \in H} f^h v_*^h
+\qquad \text{s.t.} \quad
+\sum_{h \in H} \pi^{ih} = w^i, \quad \sum_{i \in I} \pi^{ih} = f^h.
+\]
+By feasibility:
+\[
+\sum_{i \in I} w^i u_*^i + \sum_{h \in H} f^h v_*^h
+= \sum_{i \in I} \sum_{h \in H} \pi_*^{ih} U^{ih}
+\leq \max_{\pi \in \Pi} \sum_{i \in I} \sum_{h \in H} \pi^{ih} U^{ih}.
+\]
+Therefore, $\pi_*$ solves the primal problem. Moreover,
+\begin{align*}
+\min_{(u,v) \in \mathbb{R}^I \times \mathbb{R}^H} \max_{\pi \in \Pi} S(\pi, u, v)
+& \leq \max_{\pi \in \Pi} S(\pi, u_*, v_*) \\
+& = S(0, u_*, v_*)
+= \sum_{i \in I} w^i u_*^i + \sum_{h \in H} f^h v_*^h \\
+& = \sum_{i \in I} \sum_{h \in H} \pi_*^{ih} U^{ih}
+= \max_{\pi \in \Pi} \min_{(u,v) \in \mathbb{R}^I \times \mathbb{R}^H} S(\pi, u, v) \\
+& = \min_{(u,v) \in \mathbb{R}^I \times \mathbb{R}^H} \max_{\pi \in \Pi} S(\pi, u, v).
+\end{align*}
+Therefore, $(u_*, v_*)$ solves the dual problem.
+
+
+\subsection{Problem 3.2}
+\paragraph{Problem.} Show that, if $I = H$ and $U$ is supermodular, the solution to the Monge problem is the identity permutation; that is, each agent/worker $i \in I$ is paired with firm $h = i$.
+
+\paragraph{Solution.}
+We prove by induction that an optimal solution $\sigma_*$ must be such that $\sigma_*(i) = i$ for all $i \in I$.
+\begin{itemize}
+\item \textit{Initial step.} Suppose that $\sigma_*$ is optimal but $\sigma_*(1) \neq 1$. Then:
+\[
+\sum_{1 \neq i \neq \sigma_*^{-1}(1)} U^{i \sigma_*(i)} + U^{11} + U^{\sigma_*^{-1}(1) \sigma_*(1)} > \sum_{i \in I} U^{i \sigma_*(i)}.
+\]
+Therefore, $\sigma_*$ is not an optimal solution.
+\item \textit{Inductive hypothesis.} If $\sigma_*$ is an optimal solution, then $\sigma(i) = i$ for all $i < k$.
+\item \textit{Inductive step.} Suppose that $\sigma_*$ is optimal but $\sigma_*(k) \neq k$. By inductive hypothesis, $\sigma_*(k) > k$ and $\sigma_*^{-1}(k) > k$. But then:
+\[
+\sum_{k \neq i \neq \sigma_*^{-1}(k)} U^{i \sigma_*(i)} + U^{kk} + U^{\sigma_*^{-1}(k) \sigma_*(k)} > \sum_{i \in I} U^{i \sigma_*(i)}.
+\]
+Therefore, $\sigma_*$ is not an optimal solution.
+\end{itemize}
