@@ -94,20 +94,20 @@ $\Delta w^i = \frac{T_i}{p}$) --- See MWG Figure 15.b.13 for an illustration.
     \item \textbf{Step 1: Define the transfers.} Let $t^i = x^i - w^i$. By feasibility, we have $\sum_i t^i = 0$. Now it remains to show that 
         there exists a price system where $x$ is a competitive equilibrium.
     \item \textbf{Step 2: Define the strict upper Contour set.} 
-        For $x^i$, define $B^i = \{U^i(\hat{x}^i) > U^i(x^i) \}$. 
+        For $x^i$, define $B^i = \{\hat{x}^i: U^i(\hat{x}^i) > U^i(x^i) \}$. 
         Define $B = \sum_i B^i$.
         Because utility is \textcolor{blue}{strictly quasiconcave}, $B^i$ is convex and thus $B$ is convex.
-        By Supporting hyperplane theorem, there exists $p$ such that 
+        By Supporting hyperplane theorem, there exists $p \neq 0$ such that 
         \[
-        p \hat{x}^i \geq p x^i, \quad \forall \hat{x}^i \in B(x)
+        p \hat{x} \geq p \sum_i x^i, \quad \forall \hat{x} \in B
         \]
-    \item \textbf{Step 3: Prove that $p \in \mathbb_{++}^L$.} 
-        Suppose there exists $p_l < 0$, by \textcolor{blue}{strict monotonicity}, we can increase the consumption of good $l$ such that 
-        the increased buddble $y \in B(x)$ but $p y < p x^i$. Contradiction. Hence, $p \in \mathbb_{++}^L$.
+    \item \textbf{Step 3: Prove that $p \in \mathbb{R}_{++}^L$.} 
+        Suppose there exists $p_l \leq 0$, by \textcolor{blue}{strict monotonicity}, we can increase the consumption of good $l$ in some $\hat{x}^i \in B^i$ such that 
+        the resulting bundle $\hat{x} \in B$ but $p \hat{x} < p \sum_i x^i$. Contradiction. Hence, $p \in \mathbb{R}_{++}^L$.
     \item \textbf{Step 4: Prove $x^i$ is the solution for all $i$.}
-        Because utility is \textcolor{blue}{convex}, and $p \in \mathbb_{++}^L$, we have 
+        Because $U^i$ is \textcolor{blue}{continuous} and $x^i \in \mathbb{R}_{++}^L$ (\textcolor{blue}{interiority}), the cheaper-bundle argument upgrades the weak inequality to strict:
         \[
-        p \hat{x}^i > p x^i, \quad \forall \hat{x}^i \in B(x)
+        p \hat{x}^i > p x^i, \quad \forall \hat{x}^i \in B^i
         \]
         Hence, $x^i$ is the maximizer for all $i$.  
 \end{itemize}
